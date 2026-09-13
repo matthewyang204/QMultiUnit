@@ -7,16 +7,17 @@ qt_standard_project_setup()
 
 qt_add_executable(QMultiUnit
     WIN32 MACOSX_BUNDLE
-    main.cpp
-    main.cpp
-    main.h
+    mainwindow.cpp
+    mainwindow.cpp
+    mainwindow.h
     mainwindow.ui
+    main.cpp
 )
 
-qt_add_translations(
-    TARGETS QMultiUnit
-    TS_FILES QMultiUnit_en_US.ts
-)
+# qt_add_translations(
+#     TARGETS QMultiUnit
+#     TS_FILES QMultiUnit_en_US.ts
+# )
 
 target_link_libraries(QMultiUnit
     PRIVATE
