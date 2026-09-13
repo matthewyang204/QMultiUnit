@@ -11,7 +11,7 @@
    </rect>
   </property>
   <property name="windowTitle">
-   <string>QMultiUnit</string>
+   <string>QMultiUnit 1.0.0</string>
   </property>
   <widget class="QWidget" name="centralwidget">
    <layout class="QGridLayout" name="gridLayout">
@@ -23,11 +23,11 @@
         <pointsize>16</pointsize>
        </font>
       </property>
-      <property name="flat">
-       <bool>false</bool>
-      </property>
       <property name="text">
        <string>Refresh Currency Data</string>
+      </property>
+      <property name="flat">
+       <bool>false</bool>
       </property>
      </widget>
     </item>
@@ -241,11 +241,11 @@
         <pointsize>16</pointsize>
        </font>
       </property>
-      <property name="flat">
-       <bool>false</bool>
-      </property>
       <property name="text">
        <string>Convert</string>
+      </property>
+      <property name="flat">
+       <bool>false</bool>
       </property>
      </widget>
     </item>
