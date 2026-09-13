@@ -23,14 +23,13 @@
      <height>21</height>
     </rect>
    </property>
-   <widget class="QMenu" name="menuQMultiUnit">
-    <property name="title">
-     <string>QMultiUnit</string>
-    </property>
-   </widget>
-   <addaction name="menuQMultiUnit"/>
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
+  <action name="actionFile">
+   <property name="text">
+    <string>File</string>
+   </property>
+  </action>
  </widget>
  <resources/>
  <connections/>
