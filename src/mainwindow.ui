@@ -23,6 +23,9 @@
         <pointsize>16</pointsize>
        </font>
       </property>
+      <property name="flat">
+       <bool>false</bool>
+      </property>
       <property name="text">
        <string>Refresh Currency Data</string>
       </property>
@@ -237,6 +240,9 @@
         <family>Calibri</family>
         <pointsize>16</pointsize>
        </font>
+      </property>
+      <property name="flat">
+       <bool>false</bool>
       </property>
       <property name="text">
        <string>Convert</string>
