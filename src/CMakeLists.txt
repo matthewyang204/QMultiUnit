@@ -12,6 +12,7 @@ qt_add_executable(QMultiUnit
     mainwindow.h
     mainwindow.ui
     main.cpp
+    mainconv.h mainconv.cpp
 )
 
 # qt_add_translations(
