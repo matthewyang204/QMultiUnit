@@ -18,6 +18,8 @@ public:
     ~MainWindow() override;
 
     void setProgressControlsVisible(bool visible);
+    void setAirFlowControlsVisible(bool visible);
+    void setCurrencyControlsVisible(bool visible);
 
 private slots:
     void updateAuxiliaryControls();
@@ -25,8 +27,5 @@ private slots:
 
 private:
     Ui::MainWindow *ui;
-
-    void setAirFlowControlsVisible(bool visible);
-    void setCurrencyControlsVisible(bool visible);
 };
 #endif // MAINWINDOW_H
