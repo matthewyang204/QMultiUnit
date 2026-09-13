@@ -68,7 +68,8 @@ vcpkg_installed/
 Testing/
 .cache/
 
-# JetBrains IDE prefs
+# IDE prefs
+.vscode/
 .idea/
 
 # macOS annoyances
