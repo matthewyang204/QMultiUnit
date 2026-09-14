@@ -8,12 +8,12 @@ qt_standard_project_setup()
 qt_add_executable(QMultiUnit
     WIN32 MACOSX_BUNDLE
     mainwindow.cpp
-    mainwindow.cpp
     mainwindow.h
     mainwindow.ui
     main.cpp
     mainconv.h mainconv.cpp
     rounder.h rounder.cpp
+    darkmode.cpp darkmode.h
 )
 
 # qt_add_translations(
