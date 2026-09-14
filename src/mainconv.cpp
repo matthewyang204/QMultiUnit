@@ -2,6 +2,7 @@
 #include "rounder.h"
 
 #include <stdexcept>
+#include <QApplication>
 
 ConversionDicts::ConversionDicts() {
     for (auto it = MassRatios.begin(); it != MassRatios.end(); ++it){
@@ -9,29 +10,31 @@ ConversionDicts::ConversionDicts() {
     }
 }
 
-MainConverter::MainConverter() {}
+MainConverter::MainConverter(ConversionDicts& mainconversiondicts) {
+    primaryconversiondicts = mainconversiondicts;
+}
 
 double MainConverter::Convert(QString category, QString fromUnit, QString toUnit, double userInput, bool shouldRound) {
     QMap<QString, double> selectedDict;
     
     if (category == "Length") {
-        selectedDict = ConversionDicts().LengthRatios;
+        selectedDict = primaryconversiondicts.LengthRatios;
     } else if (category == "Area") {
-        selectedDict = ConversionDicts().AreaRatios;
+        selectedDict = primaryconversiondicts.AreaRatios;
     } else if (category == "Volume") {
-        selectedDict = ConversionDicts().VolumeRatios;
+        selectedDict = primaryconversiondicts.VolumeRatios;
     } else if (category == "Energy") {
-        selectedDict = ConversionDicts().EnergyRatios;
+        selectedDict = primaryconversiondicts.EnergyRatios;
     } else if (category == "Speed") {
-        selectedDict = ConversionDicts().SpeedRatios;
+        selectedDict = primaryconversiondicts.SpeedRatios;
     } else if (category == "Mass") {
-        selectedDict = ConversionDicts().MassRatios;
+        selectedDict = primaryconversiondicts.MassRatios;
     } else if (category == "Weight") {
-        selectedDict = ConversionDicts().WeightRatios;
+        selectedDict = primaryconversiondicts.WeightRatios;
     } else if (category == "Angle") {
-        selectedDict = ConversionDicts().AngleRatios;
+        selectedDict = primaryconversiondicts.AngleRatios;
     } else if (category == "Currency") {
-        selectedDict = ConversionDicts().CurrencyRatios;
+        selectedDict = primaryconversiondicts.CurrencyRatios;
     } else if (category == "Air Flow") {
         // return AFConvert(fromUnit, toUnit, userInput);
         return 0.0;

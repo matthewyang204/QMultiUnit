@@ -138,10 +138,12 @@ public:
 class MainConverter
 {
 public:
-    MainConverter();
+    MainConverter(ConversionDicts& mainconversiondicts);
     double TempConvert(QString fromUnit, QString toUnit, double userInput);
     double AFConvert(QString fromUnit, QString toUnit, double userInput);
     double Convert(QString category, QString fromUnit, QString toUnit, double userInput, bool shouldRound);
+private:
+    ConversionDicts primaryconversiondicts;
 };
 
 #endif // MAINCONV_H
