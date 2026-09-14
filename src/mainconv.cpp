@@ -36,11 +36,9 @@ double MainConverter::Convert(QString category, QString fromUnit, QString toUnit
     } else if (category == "Currency") {
         selectedDict = primaryconversiondicts.CurrencyRatios;
     } else if (category == "Air Flow") {
-        // return AFConvert(fromUnit, toUnit, userInput);
-        return 0.0;
+        throw std::invalid_argument("Unable to convert unit type `Air Flow`. Use helper function located in additionalconv.cpp instead.");
     } else if (category == "Temperature") {
-        // return TempConvert(fromUnit, toUnit, userInput);
-        return 0.0;
+        throw std::invalid_argument("Unable to convert unit type `Temperature`. Use helper function located in additionalconv.cpp instead.");
     } else {
         throw std::invalid_argument("Invalid category");
     }
