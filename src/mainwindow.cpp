@@ -65,3 +65,15 @@ void MainWindow::setCurrencyControlsVisible(bool visible)
     ui->RefreshCurrencyDataButton->setVisible(visible);
     ui->RefreshCurrencyDataButton->setEnabled(visible);
 }
+
+void MainWindow::on_CheckBox2_stateChanged(int arg1)
+{
+    updateRoundingControls();
+}
+
+
+void MainWindow::on_CheckBox1_stateChanged(int arg1)
+{
+    updateRoundingControls();
+}
+

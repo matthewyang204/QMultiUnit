@@ -25,6 +25,10 @@ private slots:
     void updateAuxiliaryControls();
     void updateRoundingControls();
 
+    void on_CheckBox2_stateChanged(int arg1);
+
+    void on_CheckBox1_stateChanged(int arg1);
+
 private:
     Ui::MainWindow *ui;
 };
