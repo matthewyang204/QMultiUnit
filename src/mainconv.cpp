@@ -1,10 +1,11 @@
 #include "mainconv.h"
+#include "rounder.h"
 
 #include <stdexcept>
 
 MainConverter::MainConverter() {}
 
-double MainConverter::Convert(QString category, QString fromUnit, QString toUnit, double userInput) {
+double MainConverter::Convert(QString category, QString fromUnit, QString toUnit, double userInput, bool shouldRound) {
     QMap<QString, double> selectedDict;
     
     if (category == "Length") {
@@ -39,5 +40,15 @@ double MainConverter::Convert(QString category, QString fromUnit, QString toUnit
         throw std::invalid_argument("Invalid unit for the selected category");
     }
 
-    return 0.0;
+    vector<double> numbers = {selectedDict[fromUnit], selectedDict[toUnit], userInput};
+
+    Rounder rounder;
+    int highestDecimalPlaces = rounder.GetHighestDecimalPlaces(numbers);
+    double result = userInput * (selectedDict[fromUnit] / selectedDict[toUnit]);
+    double roundedResult = rounder.roundtoDecimalPlaces(result, highestDecimalPlaces);
+
+    if (shouldRound) {
+        return roundedResult;
+    }
+    return result;
 }
