@@ -3,10 +3,13 @@
 #include "mainconv.h"
 
 #include <QMessageBox>
+#include <QDebug>
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::MainWindow)
+    , mainconversiondicts()
+    , PrimaryConverter(mainconversiondicts)
 {
     ui->setupUi(this);
 
@@ -186,3 +189,27 @@ void MainWindow::on_UnitCategorySelector_currentIndexChanged(int index)
         ui->Unit2SelectionBox->setCurrentIndex(1);
     }
 }
+
+void MainWindow::ConvertWrapper() {
+    bool ok;
+    QString userInputStr = ui->Input->text();
+    double userInput = userInputStr.toDouble(&ok);
+    if (!ok) {
+        QMessageBox::warning(this, "Invalid Input", "Please enter a valid number.");
+        qWarning() << "User entered bad number: " << userInputStr;
+        return;
+    }
+
+}
+
+void MainWindow::on_ConvertButton_clicked()
+{
+    ConvertWrapper();
+}
+
+
+void MainWindow::on_Input_returnPressed()
+{
+    ConvertWrapper();
+}
+

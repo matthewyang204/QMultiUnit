@@ -34,7 +34,14 @@ private slots:
 
     void on_UnitCategorySelector_currentIndexChanged(int index);
 
+    void on_ConvertButton_clicked();
+
+    void on_Input_returnPressed();
+
 private:
     Ui::MainWindow *ui;
+    MainConverter PrimaryConverter;
+
+    void ConvertWrapper();
 };
 #endif // MAINWINDOW_H
