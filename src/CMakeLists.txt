@@ -13,6 +13,7 @@ qt_add_executable(QMultiUnit
     mainwindow.ui
     main.cpp
     mainconv.h mainconv.cpp
+    rounder.h rounder.cpp
 )
 
 # qt_add_translations(
