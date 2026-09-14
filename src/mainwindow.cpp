@@ -17,6 +17,8 @@ MainWindow::MainWindow(QWidget *parent)
     setProgressControlsVisible(false);
     setAirFlowControlsVisible(false);
     setCurrencyControlsVisible(false);
+
+    MainWindow::on_UnitCategorySelector_currentIndexChanged(0);
 }
 
 MainWindow::~MainWindow()
