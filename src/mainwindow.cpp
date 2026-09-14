@@ -1,6 +1,7 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
 #include "mainconv.h"
+#include "rounder.h"
 
 #include <QMessageBox>
 #include <QDebug>
@@ -203,15 +204,27 @@ void MainWindow::ConvertWrapper() {
     QString fromUnit = ui->UnitSelectionBox->currentText();
     QString toUnit = ui->Unit2SelectionBox->currentText();
     bool shouldRound;
+    bool shouldSF = false;
     if (ui->CheckBox1->isChecked()){
         shouldRound = false;
-    } else if (ui->CheckBox1->isChecked()){
-        qCritical() << "E: Undefined code!";
-        return;
+    } else if (ui->CheckBox2->isChecked()){
+        shouldRound = false;
+        shouldSF = true;
     } else {
         shouldRound = true;
     }
     double result = PrimaryConverter.Convert(category, fromUnit, toUnit, userInput, shouldRound);
+    if (shouldSF){
+        double fromValue = PrimaryConverter.GetRatioDictValue(category, fromUnit);
+        double toValue = PrimaryConverter.GetRatioDictValue(category, toUnit);
+        std::vector<double> numbers = {
+            fromValue,
+            toValue,
+            userInput
+        };
+        int sigfigcount = SigFigs().GetSigFigsFromList(numbers);
+        result = SigFigs().RoundToSigFigs(result, sigfigcount);
+    }
     QString resultString = QString::number(result);
     ui->ResultBox->setText(resultString);
 }
