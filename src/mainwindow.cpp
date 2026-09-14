@@ -155,12 +155,7 @@ void MainWindow::on_UnitCategorySelector_currentIndexChanged(int index)
         };
 
         // Make the area input stuff visible
-        ui->Label5->setVisible(true);
-        ui->AreaUnitSelector->setVisible(true);
-        ui->AreaInputBox->setVisible(true);
-        ui->Area2InputBox->setVisible(true);
-        ui->Label6->setVisible(true);
-        ui->Label7->setVisible(true);
+        setAirFlowControlsVisible(true);
 
     } else if (category == "Angle") {
         for (auto it = mainconversiondicts.AngleRatios.begin(); it != mainconversiondicts.AngleRatios.end(); ++it){
