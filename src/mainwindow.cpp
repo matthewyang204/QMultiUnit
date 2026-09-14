@@ -196,10 +196,24 @@ void MainWindow::ConvertWrapper() {
     double userInput = userInputStr.toDouble(&ok);
     if (!ok) {
         QMessageBox::warning(this, "Invalid Input", "Please enter a valid number.");
-        qWarning() << "User entered bad number: " << userInputStr;
+        qWarning() << "E: User attempted to convert bad number: " << userInputStr;
         return;
     }
-
+    QString category = ui->UnitCategorySelector->currentText();
+    QString fromUnit = ui->UnitSelectionBox->currentText();
+    QString toUnit = ui->Unit2SelectionBox->currentText();
+    bool shouldRound;
+    if (ui->CheckBox1->isChecked()){
+        shouldRound = false;
+    } else if (ui->CheckBox1->isChecked()){
+        qCritical() << "E: Undefined code!";
+        return;
+    } else {
+        shouldRound = true;
+    }
+    double result = PrimaryConverter.Convert(category, fromUnit, toUnit, userInput, shouldRound);
+    QString resultString = QString::number(result);
+    ui->ResultBox->setText(resultString);
 }
 
 void MainWindow::on_ConvertButton_clicked()
