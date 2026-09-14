@@ -11,6 +11,10 @@ MainWindow::MainWindow(QWidget *parent)
             this, &MainWindow::updateRoundingControls);
 
     updateRoundingControls();
+
+    setProgressControlsVisible(false);
+    setAirFlowControlsVisible(false);
+    setCurrencyControlsVisible(false);
 }
 
 MainWindow::~MainWindow()
