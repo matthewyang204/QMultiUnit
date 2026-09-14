@@ -40,7 +40,7 @@ double MainConverter::Convert(QString category, QString fromUnit, QString toUnit
         throw std::invalid_argument("Invalid unit for the selected category");
     }
 
-    vector<double> numbers = {selectedDict[fromUnit], selectedDict[toUnit], userInput};
+    std::vector<double> numbers = {selectedDict[fromUnit], selectedDict[toUnit], userInput};
 
     Rounder rounder;
     int highestDecimalPlaces = rounder.GetHighestDecimalPlaces(numbers);
