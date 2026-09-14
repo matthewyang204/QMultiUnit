@@ -139,6 +139,7 @@ public:
     MainConverter();
     double TempConvert(QString fromUnit, QString toUnit, double userInput);
     double AFConvert(QString fromUnit, QString toUnit, double userInput);
+    double Convert(QString category, QString fromUnit, QString toUnit, double userInput);
 };
 
 #endif // MAINCONV_H
