@@ -3,6 +3,12 @@
 
 #include <stdexcept>
 
+ConversionDicts::ConversionDicts() {
+    for (auto it = MassRatios.begin(); it != MassRatios.end(); ++it){
+        WeightRatios["Earth " + it.key()] = it.value();
+    }
+}
+
 MainConverter::MainConverter() {}
 
 double MainConverter::Convert(QString category, QString fromUnit, QString toUnit, double userInput, bool shouldRound) {

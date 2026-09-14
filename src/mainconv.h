@@ -7,6 +7,8 @@
 
 class ConversionDicts {
 public:
+    ConversionDicts();
+    
     QMap<QString, double> LengthRatios = {
         {"Meters", 1.0}, // Base unit
         {"Yards", 0.9144},
