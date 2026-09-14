@@ -1,6 +1,7 @@
 #include "rounder.h"
 
 #include <cmath>
+#include <string>
 
 Rounder::Rounder() {}
 
