@@ -124,7 +124,7 @@ public:
 
     QMap<QString, double> AngleRatios = {
         {"Degrees", 1.0}, // Base unit
-        {"Radians", 180.0 / std::numbers::pi},
+        {"Radians", 180.0 / M_PI},
         {"Gradians", 0.9},
         {"Arcminutes", 1.0 / 60.0},
         {"Arcseconds", 1.0 / 3600.0}
