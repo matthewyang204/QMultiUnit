@@ -1,5 +1,6 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
+#include "mainconv.h"
 
 #include <QMessageBox>
 
@@ -109,133 +110,39 @@ void MainWindow::on_UnitCategorySelector_currentIndexChanged(int index)
         };
 
     } else if (category == "Speed") {
-        units = {
-            "MPH",
-            "km/h",
-            "ft/s",
-            "m/s",
-            "Knots",
-            "Mach",
-            "cm/s",
-            "mm/s"
-        };
+        for (auto it = mainconversiondicts.SpeedRatios.begin(); it != mainconversiondicts.SpeedRatios.end(); ++it){
+            units.append(it.key());
+        }
 
     } else if (category == "Length") {
-        units = {
-            "Meters",
-            "Yards",
-            "Centimeters",
-            "Millimeters",
-            "Micrometers",
-            "Nanometers",
-            "Inches",
-            "Kilometers",
-            "Miles",
-            "Feet",
-            "Decimeters",
-            "Microns",
-            "Nautical Miles",
-            "Astronomical Units",
-            "Light Years",
-            "Parsecs"
-        };
+        for (auto it = mainconversiondicts.LengthRatios.begin(); it != mainconversiondicts.LengthRatios.end(); ++it){
+            units.append(it.key());
+        }
 
     } else if (category == "Area") {
-        units = {
-            "Square Meters",
-            "Square Yards",
-            "Square Centimeters",
-            "Square Millimeters",
-            "Square Inches",
-            "Square Kilometers",
-            "Square Miles",
-            "Square Feet",
-            "Square Decimeters",
-            "Hectares",
-            "Acres",
-            "Ares",
-            "Square Nautical Miles",
-            "Barns"
-        };
+        for (auto it = mainconversiondicts.AreaRatios.begin(); it != mainconversiondicts.AreaRatios.end(); ++it){
+            units.append(it.key());
+        }
 
     } else if (category == "Volume") {
-        units = {
-            "Milliliters",
-            "Tablespoons",
-            "Teaspoons",
-            "Barrels",
-            "Imperial Gallons",
-            "Gallons",
-            "Liters",
-            "Quarts",
-            "Pints",
-            "Cups",
-            "Fluid Ounces",
-            "US Gill",
-            "UK Gill",
-            "Cubic Meters",
-            "Cubic Yards",
-            "Cubic Centimeters",
-            "Cubic Millimeters",
-            "Cubic Inches",
-            "Cubic Kilometers",
-            "Cubic Miles",
-            "Cubic Feet",
-            "Cubic Decimeters"
-        };
+        for (auto it = mainconversiondicts.VolumeRatios.begin(); it != mainconversiondicts.VolumeRatios.end(); ++it){
+            units.append(it.key());
+        }
 
     } else if (category == "Energy") {
-        units = {
-            "Joules",
-            "Kilojoules",
-            "Megajoules",
-            "Watt-hours",
-            "Kilowatt-hours",
-            "Electronvolts",
-            "Calories",
-            "Kilocalories",
-            "BTUs (British Thermal Units)",
-            "Foot-Pounds",
-            "Ergs",
-            "Therms",
-            "Ton TNT",
-            "Horsepower-hours"
-        };
+        for (auto it = mainconversiondicts.EnergyRatios.begin(); it != mainconversiondicts.EnergyRatios.end(); ++it){
+            units.append(it.key());
+        }
 
     } else if (category == "Weight") {
-        units = {
-            "Dyne",
-            "Newton",
-            "Kilopond",
-            "Kilonewton",
-            "Pound-force",
-            "Gram-force",
-            "Ton-force",
-            "Earth Grams",
-            "Earth Ounces",
-            "Earth Kilograms",
-            "Earth Pounds",
-            "Earth Metric Tonnes",
-            "Earth Short Tonnes",
-            "Earth Long Tonnes",
-            "Earth Stones"
-        };
+        for (auto it = mainconversiondicts.WeightRatios.begin(); it != mainconversiondicts.WeightRatios.end(); ++it){
+            units.append(it.key());
+        }
 
     } else if (category == "Mass") {
-        units = {
-            "Grams",
-            "Milligrams",
-            "Micrograms",
-            "Carats",
-            "Atomic Mass Units",
-            "Ounces",
-            "Kilograms",
-            "Pounds",
-            "Metric Tonnes",
-            "Short Tonnes",
-            "Long Tonnes",
-            "Stones"
-        };
+        for (auto it = mainconversiondicts.MassRatios.begin(); it != mainconversiondicts.MassRatios.end(); ++it){
+            units.append(it.key());
+        }
 
     } else if (category == "Air Flow") {
         units = {
@@ -256,13 +163,9 @@ void MainWindow::on_UnitCategorySelector_currentIndexChanged(int index)
         ui->Label7->setVisible(true);
 
     } else if (category == "Angle") {
-        units = {
-            "Degrees",
-            "Radians",
-            "Gradians",
-            "Arcminutes",
-            "Arcseconds"
-        };
+        for (auto it = mainconversiondicts.AngleRatios.begin(); it != mainconversiondicts.AngleRatios.end(); ++it){
+            units.append(it.key());
+        }
 
     } else if (category == "Currency") {
         ui->RefreshCurrencyDataButton->setVisible(true);

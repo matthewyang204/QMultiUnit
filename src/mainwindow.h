@@ -1,6 +1,8 @@
 #ifndef MAINWINDOW_H
 #define MAINWINDOW_H
 
+#include "mainconv.h"
+
 #include <QMainWindow>
 
 QT_BEGIN_NAMESPACE
@@ -20,6 +22,7 @@ public:
     void setProgressControlsVisible(bool visible);
     void setAirFlowControlsVisible(bool visible);
     void setCurrencyControlsVisible(bool visible);
+    ConversionDicts mainconversiondicts;
 
 private slots:
     void updateAuxiliaryControls();
