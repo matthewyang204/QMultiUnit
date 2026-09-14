@@ -29,6 +29,8 @@ private slots:
 
     void on_CheckBox1_stateChanged(int arg1);
 
+    void on_UnitCategorySelector_currentIndexChanged(int index);
+
 private:
     Ui::MainWindow *ui;
 };
