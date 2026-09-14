@@ -14,6 +14,7 @@ qt_add_executable(QMultiUnit
     mainconv.h mainconv.cpp
     rounder.h rounder.cpp
     darkmode.cpp darkmode.h
+    additionalconv.h additionalconv.cpp
 )
 
 # qt_add_translations(
