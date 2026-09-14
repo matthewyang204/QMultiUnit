@@ -13,4 +13,12 @@ public:
     int GetHighestDecimalPlaces(std::vector<double> numbers);
 };
 
+class SigFigs
+{
+public:
+    static double RoundToSigFigs(double value, int sigFigs);
+    static int GetSigFigs(double value);
+    static int GetSigFigsFromList(const std::vector<double>& values);
+};
+
 #endif // ROUNDER_H

@@ -2,6 +2,7 @@
 
 #include <cmath>
 #include <string>
+#include <QString>
 
 Rounder::Rounder() {}
 
@@ -36,4 +37,52 @@ int Rounder::GetHighestDecimalPlaces(std::vector<double> numbers)
         }
     }
     return maxDecimalPlaces;
+}
+
+double SigFigs::RoundToSigFigs(double value, int sigFigs)
+{
+    if (value == 0) {
+        return 0;
+    }
+
+    double scale = std::pow(
+        10.0,
+        std::floor(std::log10(std::abs(value))) + 1 - sigFigs
+        );
+
+    return std::round(value / scale) * scale;
+}
+
+int SigFigs::GetSigFigs(double value)
+{
+    if (value == 0) {
+        return 1;
+    }
+
+    QString strValue = QString::number(value, 'g', 17);
+
+    int sigFigs = 0;
+
+    for (const QChar& c : strValue) {
+        if (c.isDigit()) {
+            ++sigFigs;
+        }
+    }
+
+    return sigFigs;
+}
+
+int SigFigs::GetSigFigsFromList(const std::vector<double>& values)
+{
+    int maxSigFigs = 0;
+
+    for (double value : values) {
+        int sigFigs = GetSigFigs(value);
+
+        if (sigFigs > maxSigFigs) {
+            maxSigFigs = sigFigs;
+        }
+    }
+
+    return maxSigFigs;
 }
