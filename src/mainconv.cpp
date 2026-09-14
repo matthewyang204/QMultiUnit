@@ -33,7 +33,7 @@ double MainConverter::Convert(QString category, QString fromUnit, QString toUnit
     } else if (category == "Currency") {
         selectedDict = ConversionDicts().CurrencyRatios;
     } else if (category == "Air Flow") {
-        // selectedDict = ConversionDicts().AirFlowRatios;
+        // return AFConvert(fromUnit, toUnit, userInput);
         return 0.0;
     } else if (category == "Temperature") {
         // return TempConvert(fromUnit, toUnit, userInput);
