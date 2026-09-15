@@ -288,7 +288,16 @@ void MainWindow::on_RefreshCurrencyDataButton_clicked()
     ui->UnitSelectionBox->clear();
     ui->Unit2SelectionBox->clear();
     QStringList units;
+    if (mainconversiondicts.CurrencyRatios.contains("CNY")) {
+        units.append("CNY");
+    }
+    if (mainconversiondicts.CurrencyRatios.contains("USD")) {
+        units.append("USD");
+    }
     for (auto it = mainconversiondicts.CurrencyRatios.begin(); it != mainconversiondicts.CurrencyRatios.end(); ++it){
+        if (it.key() == "CNY" || it.key() == "USD") {
+            continue;
+        }
         units.append(it.key());
     }
     ui->UnitSelectionBox->addItems(units);
