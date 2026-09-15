@@ -2,6 +2,7 @@
 #include "ui_mainwindow.h"
 #include "mainconv.h"
 #include "rounder.h"
+#include "additionalconv.h"
 
 #include <QMessageBox>
 #include <QDebug>
@@ -213,7 +214,19 @@ void MainWindow::ConvertWrapper() {
     } else {
         shouldRound = true;
     }
-    double result = PrimaryConverter.Convert(category, fromUnit, toUnit, userInput, shouldRound);
+    double result;
+    if (category == "Temperature") {
+        AdditionalConv additionalconverter(mainconversiondicts);
+        result = additionalconverter.TempConvert(fromUnit, toUnit, userInput);
+    } else if (category == "Air Flow") {
+        QString areaUnit = ui->AreaUnitSelector->currentText();
+        double areaHeight = ui->AreaInputBox->text().toDouble();
+        double areaWidth = ui->Area2InputBox->text().toDouble();
+        AdditionalConv additionalconverter(mainconversiondicts);
+        result = additionalconverter.AFConvert(fromUnit, toUnit, userInput, areaUnit, areaWidth, areaHeight);
+    } else {
+        result = PrimaryConverter.Convert(category, fromUnit, toUnit, userInput, shouldRound);
+    }
     if (shouldSF){
         double fromValue = PrimaryConverter.GetRatioDictValue(category, fromUnit);
         double toValue = PrimaryConverter.GetRatioDictValue(category, toUnit);
