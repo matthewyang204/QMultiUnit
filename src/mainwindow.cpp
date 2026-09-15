@@ -217,7 +217,7 @@ void MainWindow::ConvertWrapper() {
     double result;
     if (category == "Temperature") {
         AdditionalConv additionalconverter(mainconversiondicts);
-        result = additionalconverter.TempConvert(fromUnit, toUnit, userInput);
+        result = additionalconverter.TempConvert(fromUnit, toUnit, userInput, shouldRound, shouldSF);
     } else if (category == "Air Flow") {
         QString areaUnit = ui->AreaUnitSelector->currentText();
         double areaHeight = ui->AreaInputBox->text().toDouble();
@@ -227,7 +227,7 @@ void MainWindow::ConvertWrapper() {
     } else {
         result = PrimaryConverter.Convert(category, fromUnit, toUnit, userInput, shouldRound);
     }
-    if (shouldSF){
+    if (shouldSF && category != "Temperature"){
         double fromValue = PrimaryConverter.GetRatioDictValue(category, fromUnit);
         double toValue = PrimaryConverter.GetRatioDictValue(category, toUnit);
         std::vector<double> numbers = {

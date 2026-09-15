@@ -1,5 +1,6 @@
 #include "additionalconv.h"
 #include "mainconv.h"
+#include "rounder.h"
 
 #include <stdexcept>
 
@@ -7,32 +8,47 @@ AdditionalConv::AdditionalConv(ConversionDicts& mainconversiondicts) {
     primaryconversiondicts = mainconversiondicts;
 }
 
-double AdditionalConv::TempConvert(QString fromUnit, QString toUnit, double userInput) {
+double AdditionalConv::TempConvert(QString fromUnit, QString toUnit, double userInput, bool shouldRound, bool shouldSF) {
     double calcTemp;
+
+    if (shouldRound && shouldSF){
+        throw std::invalid_argument("Both shouldRound and shouldSF cannot be true at same time.");
+    }
 
     if (fromUnit == "C" && toUnit == "F"){
         calcTemp = (userInput * (9.0/5.0)) + 32.0;
-        return calcTemp;
     } else if (fromUnit == "C" && toUnit == "K"){
         calcTemp = userInput + 273.15;
-        return calcTemp;
     } else if (fromUnit == "F" && toUnit == "C"){
         calcTemp = (userInput - 32.0) * 5.0 / 9.0;
-        return calcTemp;
     } else if (fromUnit == "F" && toUnit == "K"){
         calcTemp = (userInput - 32.0) * 5.0 / 9.0 + 273.15;
-        return calcTemp;
     } else if (fromUnit == "K" && toUnit == "C"){
         calcTemp = userInput - 273.15;
-        return calcTemp;
     } else if (fromUnit == "K" && toUnit == "F"){
         calcTemp = (userInput - 273.15) * 9.0 / 5.0 + 32.0;
-        return calcTemp;
     } else if (fromUnit == toUnit){
         return userInput;
+    } else {
+        throw std::invalid_argument("Invalid Temperature conversion.");
     }
 
-    throw std::invalid_argument("Invalid Temperature conversion.");
+    if (shouldSF) {
+        int sigfigcount = SigFigs::GetSigFigs(userInput);
+        calcTemp = SigFigs::RoundToSigFigs(calcTemp, sigfigcount);
+    } else if (shouldRound) {
+        Rounder rounder;
+
+        std::vector<double> numbers = {
+            userInput,
+            calcTemp
+        };
+
+        int decimalPlaces = rounder.GetHighestDecimalPlaces(numbers);
+        calcTemp = rounder.roundtoDecimalPlaces(calcTemp, decimalPlaces);
+    }
+
+    return calcTemp;
 }
 
 double AdditionalConv::AFConvert(QString fromUnit, QString toUnit, double userInput, QString areaUnit, double areaWidth, double areaHeight){

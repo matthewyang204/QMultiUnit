@@ -9,7 +9,7 @@ class AdditionalConv
 {
 public:
     AdditionalConv(ConversionDicts& mainconversiondicts);
-    double TempConvert(QString fromUnit, QString toUnit, double userInput);
+    double TempConvert(QString fromUnit, QString toUnit, double userInput, bool shouldRound, bool shouldSF);
     double AFConvert(QString fromUnit, QString toUnit, double userInput, QString areaUnit, double areaWidth, double areaHeight);
 private:
     ConversionDicts primaryconversiondicts;
