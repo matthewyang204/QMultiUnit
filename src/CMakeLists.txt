@@ -1,7 +1,7 @@
 cmake_minimum_required(VERSION 3.19)
 project(QMultiUnit LANGUAGES CXX)
 
-find_package(Qt6 6.5 REQUIRED COMPONENTS Core Widgets LinguistTools)
+find_package(Qt6 6.5 REQUIRED COMPONENTS Core Widgets LinguistTools Network)
 
 qt_standard_project_setup()
 
@@ -15,6 +15,7 @@ qt_add_executable(QMultiUnit
     rounder.h rounder.cpp
     darkmode.cpp darkmode.h
     additionalconv.h additionalconv.cpp
+    currencyapi.h currencyapi.cpp
 )
 
 # qt_add_translations(
@@ -26,6 +27,7 @@ target_link_libraries(QMultiUnit
     PRIVATE
         Qt::Core
         Qt::Widgets
+        Qt6::Network
 )
 
 install(TARGETS QMultiUnit
