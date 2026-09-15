@@ -216,19 +216,42 @@ void MainWindow::ConvertWrapper() {
         shouldRound = true;
     }
     double result;
+    QString areaUnit;
+    double areaHeight;
+    double areaWidth;
     if (category == "Temperature") {
         AdditionalConv additionalconverter(mainconversiondicts);
         result = additionalconverter.TempConvert(fromUnit, toUnit, userInput, shouldRound, shouldSF);
     } else if (category == "Air Flow") {
-        QString areaUnit = ui->AreaUnitSelector->currentText();
-        double areaHeight = ui->AreaInputBox->text().toDouble();
-        double areaWidth = ui->Area2InputBox->text().toDouble();
+        areaUnit = ui->AreaUnitSelector->currentText();
+        areaHeight = ui->AreaInputBox->text().toDouble();
+        areaWidth = ui->Area2InputBox->text().toDouble();
         AdditionalConv additionalconverter(mainconversiondicts);
         result = additionalconverter.AFConvert(fromUnit, toUnit, userInput, areaUnit, areaWidth, areaHeight);
     } else {
         result = PrimaryConverter.Convert(category, fromUnit, toUnit, userInput, shouldRound);
     }
-    if (shouldSF && category != "Temperature"){
+    if (shouldRound && category == "Air Flow"){
+        double fromValue = mainconversiondicts.LengthRatios.value(areaUnit);
+        double toValue = mainconversiondicts.LengthRatios.value(areaUnit);
+        std::vector<double> numbers = {
+            fromValue,
+            toValue,
+            userInput
+        };
+        int deccount = Rounder().GetLowestDecimalPlaces(numbers);
+        result = Rounder().roundtoDecimalPlaces(result, deccount);
+    } else if (shouldSF && category == "Air Flow"){
+        double fromValue = mainconversiondicts.LengthRatios.value(areaUnit);
+        double toValue = mainconversiondicts.LengthRatios.value(areaUnit);
+        std::vector<double> numbers = {
+            fromValue,
+            toValue,
+            userInput
+        };
+        int sigfigcount = SigFigs().GetSigFigsFromList(numbers);
+        result = SigFigs().RoundToSigFigs(result, sigfigcount);
+    } else if (shouldSF && category != "Temperature"){
         double fromValue = PrimaryConverter.GetRatioDictValue(category, fromUnit);
         double toValue = PrimaryConverter.GetRatioDictValue(category, toUnit);
         std::vector<double> numbers = {
