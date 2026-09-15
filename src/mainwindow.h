@@ -22,6 +22,7 @@ public:
     void setProgressControlsVisible(bool visible);
     void setAirFlowControlsVisible(bool visible);
     void setCurrencyControlsVisible(bool visible);
+    void setCurrencyControlsEnabled(bool enabled);
     ConversionDicts mainconversiondicts;
 
 private slots:
@@ -37,6 +38,8 @@ private slots:
     void on_ConvertButton_clicked();
 
     void on_Input_returnPressed();
+
+    void on_RefreshCurrencyDataButton_clicked();
 
 private:
     Ui::MainWindow *ui;

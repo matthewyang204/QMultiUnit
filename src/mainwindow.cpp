@@ -3,6 +3,7 @@
 #include "mainconv.h"
 #include "rounder.h"
 #include "additionalconv.h"
+#include "currencyapi.h"
 
 #include <QMessageBox>
 #include <QDebug>
@@ -75,6 +76,8 @@ void MainWindow::setCurrencyControlsVisible(bool visible)
     ui->RefreshCurrencyDataButton->setVisible(visible);
     ui->RefreshCurrencyDataButton->setEnabled(visible);
 }
+
+void MainWindow::setCurrencyControlsEnabled(bool enabled){ui->RefreshCurrencyDataButton->setEnabled(enabled);}
 
 void MainWindow::on_CheckBox2_stateChanged(int arg1)
 {
@@ -168,8 +171,7 @@ void MainWindow::on_UnitCategorySelector_currentIndexChanged(int index)
         ui->UnitSelectionBox->clear();
         ui->Unit2SelectionBox->clear();
 
-        // Not ready yet
-        // UpdateCRatios();
+        on_RefreshCurrencyDataButton_clicked();
 
     } else {
         QMessageBox::warning(
@@ -275,5 +277,23 @@ void MainWindow::on_ConvertButton_clicked()
 void MainWindow::on_Input_returnPressed()
 {
     ConvertWrapper();
+}
+
+void MainWindow::on_RefreshCurrencyDataButton_clicked()
+{
+    CurrencyAPI currencyapi;
+    setCurrencyControlsEnabled(false);
+
+    mainconversiondicts.CurrencyRatios = currencyapi.RefreshRates();
+    ui->UnitSelectionBox->clear();
+    ui->Unit2SelectionBox->clear();
+    QStringList units;
+    for (auto it = mainconversiondicts.CurrencyRatios.begin(); it != mainconversiondicts.CurrencyRatios.end(); ++it){
+        units.append(it.key());
+    }
+    ui->UnitSelectionBox->addItems(units);
+    ui->Unit2SelectionBox->addItems(units);
+
+    setCurrencyControlsEnabled(true);
 }
 
