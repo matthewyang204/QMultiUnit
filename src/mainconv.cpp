@@ -50,7 +50,7 @@ double MainConverter::Convert(QString category, QString fromUnit, QString toUnit
     std::vector<double> numbers = {selectedDict[fromUnit], selectedDict[toUnit], userInput};
 
     Rounder rounder;
-    int highestDecimalPlaces = rounder.GetHighestDecimalPlaces(numbers);
+    int highestDecimalPlaces = rounder.GetLowestDecimalPlaces(numbers);
     double result = userInput * (selectedDict[fromUnit] / selectedDict[toUnit]);
     double roundedResult = rounder.roundtoDecimalPlaces(result, highestDecimalPlaces);
 

@@ -44,7 +44,7 @@ double AdditionalConv::TempConvert(QString fromUnit, QString toUnit, double user
             calcTemp
         };
 
-        int decimalPlaces = rounder.GetHighestDecimalPlaces(numbers);
+        int decimalPlaces = rounder.GetLowestDecimalPlaces(numbers);
         calcTemp = rounder.roundtoDecimalPlaces(calcTemp, decimalPlaces);
     }
 
