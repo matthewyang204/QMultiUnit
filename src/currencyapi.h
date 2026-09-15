@@ -9,6 +9,12 @@ class CurrencyAPI
 {
 public:
     CurrencyAPI();
+    QString DownloadCurrencyData();
+    QMap<QString, double> ParseRates(const QString& json);
+    QMap<QString, double> RefreshRates();
+
+private:
+    QNetworkAccessManager networkManager;
 };
 
 #endif // CURRENCYAPI_H
