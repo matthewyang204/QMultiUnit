@@ -11,6 +11,7 @@ public:
     double roundtoDecimalPlaces(double number, int decimalPlaces);
     int RoundToNearestInteger(double number);
     int GetHighestDecimalPlaces(std::vector<double> numbers);
+    int GetLowestDecimalPlaces(std::vector<double> numbers);
 };
 
 class SigFigs

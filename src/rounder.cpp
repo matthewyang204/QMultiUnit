@@ -39,6 +39,25 @@ int Rounder::GetHighestDecimalPlaces(std::vector<double> numbers)
     return maxDecimalPlaces;
 }
 
+int Rounder::GetLowestDecimalPlaces(std::vector<double> numbers)
+{
+    if (numbers.empty()) {
+        return 0;
+    }
+
+    int minDecimalPlaces = GetDecimalPlaces(numbers[0]);
+
+    for (size_t i = 1; i < numbers.size(); ++i) {
+        int decimalPlaces = GetDecimalPlaces(numbers[i]);
+
+        if (decimalPlaces < minDecimalPlaces) {
+            minDecimalPlaces = decimalPlaces;
+        }
+    }
+
+    return minDecimalPlaces;
+}
+
 double SigFigs::RoundToSigFigs(double value, int sigFigs)
 {
     if (value == 0) {
