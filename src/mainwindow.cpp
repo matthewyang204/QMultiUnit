@@ -163,7 +163,7 @@ void MainWindow::on_UnitCategorySelector_currentIndexChanged(int index)
         }
 
     } else if (category == "Currency") {
-        ui->RefreshCurrencyDataButton->setVisible(true);
+        setCurrencyControlsVisible(true);
 
         ui->UnitSelectionBox->clear();
         ui->Unit2SelectionBox->clear();
