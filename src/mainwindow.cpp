@@ -97,6 +97,7 @@ void MainWindow::on_UnitCategorySelector_currentIndexChanged(int index)
     // Make some components invisible
     // CFM/LFM-specific stuff
     setAirFlowControlsVisible(false);
+    setCurrencyControlsVisible(false);
 
     QString category = ui->UnitCategorySelector->currentText();
     QStringList units;
