@@ -10,9 +10,9 @@ ConversionDicts::ConversionDicts() {
     }
 }
 
-MainConverter::MainConverter(ConversionDicts& mainconversiondicts) {
-    primaryconversiondicts = mainconversiondicts;
-}
+MainConverter::MainConverter(ConversionDicts& mainconversiondicts)
+    : primaryconversiondicts(mainconversiondicts)
+{}
 
 double MainConverter::Convert(QString category, QString fromUnit, QString toUnit, double userInput, bool shouldRound) {
     QMap<QString, double> selectedDict;

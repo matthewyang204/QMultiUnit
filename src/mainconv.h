@@ -142,7 +142,7 @@ public:
     double Convert(QString category, QString fromUnit, QString toUnit, double userInput, bool shouldRound);
     double GetRatioDictValue(QString category, QString unit);
 private:
-    ConversionDicts primaryconversiondicts;
+    ConversionDicts& primaryconversiondicts;
 };
 
 #endif // MAINCONV_H
