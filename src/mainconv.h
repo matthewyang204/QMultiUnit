@@ -139,8 +139,6 @@ class MainConverter
 {
 public:
     MainConverter(ConversionDicts& mainconversiondicts);
-    double TempConvert(QString fromUnit, QString toUnit, double userInput);
-    double AFConvert(QString fromUnit, QString toUnit, double userInput);
     double Convert(QString category, QString fromUnit, QString toUnit, double userInput, bool shouldRound);
     double GetRatioDictValue(QString category, QString unit);
 private:
