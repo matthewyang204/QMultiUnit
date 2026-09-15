@@ -238,7 +238,7 @@ void MainWindow::ConvertWrapper() {
         int sigfigcount = SigFigs().GetSigFigsFromList(numbers);
         result = SigFigs().RoundToSigFigs(result, sigfigcount);
     }
-    QString resultString = QString::number(result);
+    QString resultString = QString::number(result, 'g', 6);
     ui->ResultBox->setText(resultString);
 }
 
