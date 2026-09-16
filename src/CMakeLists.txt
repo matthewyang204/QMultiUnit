@@ -16,6 +16,13 @@ qt_add_executable(QMultiUnit
     darkmode.cpp darkmode.h
     additionalconv.h additionalconv.cpp
     currencyapi.h currencyapi.cpp
+    images/qmultiunit.icns
+)
+
+qt_add_resources(QMultiUnit "resources"
+    PREFIX "/"
+    FILES
+        images/qmultiunit.png
 )
 
 # qt_add_translations(
