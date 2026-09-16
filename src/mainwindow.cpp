@@ -297,15 +297,25 @@ bool MainWindow::on_RefreshCurrencyDataButton_clicked()
 
     try {mainconversiondicts.CurrencyRatios = currencyapi.RefreshRates();}
     catch (const std::exception& e) {
-        QMessageBox::warning(
-            this,
-            "Currency Data Error",
-            QString("Unable to update currency data, falling back to old data:\n%1")
-                .arg(e.what())
-            );
-        ui->ProgressBar1->setVisible(false);
-        setCurrencyControlsEnabled(true);
-        return false;
+        if (mainconversiondicts.CurrencyRatios.size() >= 2) {
+            QMessageBox::warning(
+                this,
+                "Currency Data Error",
+                QString("Unable to update currency data; no previous data:\n%1")
+                    .arg(e.what())
+                );
+            ui->ProgressBar1->setVisible(false);
+            setCurrencyControlsEnabled(true);
+            return false;
+        } else {
+            QMessageBox::warning(
+                this,
+                "Currency Data Error",
+                QString("Unable to update currency data; falling back to previously fetched data:\n%1")
+                    .arg(e.what())
+                );
+            mainconversiondicts.CurrencyRatios = bakCRatios;
+        }
     }
     ui->UnitSelectionBox->clear();
     ui->Unit2SelectionBox->clear();
@@ -327,6 +337,7 @@ bool MainWindow::on_RefreshCurrencyDataButton_clicked()
     }
     ui->UnitSelectionBox->addItems(units);
     ui->Unit2SelectionBox->addItems(units);
+    bakCRatios = mainconversiondicts.CurrencyRatios;
 
     ui->ProgressBar1->setVisible(false);
     setCurrencyControlsEnabled(true);
