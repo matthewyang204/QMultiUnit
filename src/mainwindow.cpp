@@ -294,8 +294,11 @@ void MainWindow::on_RefreshCurrencyDataButton_clicked()
     if (mainconversiondicts.CurrencyRatios.contains("USD")) {
         units.append("USD");
     }
+    if (mainconversiondicts.CurrencyRatios.contains("EUR")) {
+        units.append("EUR");
+    }
     for (auto it = mainconversiondicts.CurrencyRatios.begin(); it != mainconversiondicts.CurrencyRatios.end(); ++it){
-        if (it.key() == "CNY" || it.key() == "USD") {
+        if (it.key() == "CNY" || it.key() == "USD" || it.key() == "EUR") {
             continue;
         }
         units.append(it.key());
