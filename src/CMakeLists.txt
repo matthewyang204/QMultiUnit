@@ -41,6 +41,21 @@ if(WIN32)
     )
 endif()
 
+if(WIN32)
+    find_program(WINDEPLOYQT_EXECUTABLE
+        windeployqt
+        HINTS "${CMAKE_PREFIX_PATH}/bin"
+        REQUIRED
+    )
+
+    add_custom_command(TARGET QMultiUnit POST_BUILD
+        COMMAND "${WINDEPLOYQT_EXECUTABLE}"
+            --release
+            "$<TARGET_FILE:QMultiUnit>"
+        COMMENT "Deploying Qt dependencies..."
+    )
+endif()
+
 # qt_add_translations(
 #     TARGETS QMultiUnit
 #     TS_FILES QMultiUnit_en_US.ts
