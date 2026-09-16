@@ -4,9 +4,9 @@
 
 #include <stdexcept>
 
-AdditionalConv::AdditionalConv(ConversionDicts& mainconversiondicts) {
-    primaryconversiondicts = mainconversiondicts;
-}
+AdditionalConv::AdditionalConv(ConversionDicts& mainconversiondicts)
+    : primaryconversiondicts(mainconversiondicts)
+{}
 
 double AdditionalConv::TempConvert(QString fromUnit, QString toUnit, double userInput, bool shouldRound, bool shouldSF) {
     double calcTemp;

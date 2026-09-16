@@ -12,7 +12,7 @@ public:
     double TempConvert(QString fromUnit, QString toUnit, double userInput, bool shouldRound, bool shouldSF);
     double AFConvert(QString fromUnit, QString toUnit, double userInput, QString areaUnit, double areaWidth, double areaHeight);
 private:
-    ConversionDicts primaryconversiondicts;
+    ConversionDicts& primaryconversiondicts;
 };
 
 #endif // ADDITIONALCONV_H
