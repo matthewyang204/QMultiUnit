@@ -7,6 +7,17 @@
 #define MyAppURL "https://www.github.com/matthewyang204/QMultiUnit"
 #define MyAppExeName "QMultiUnit.exe"
 
+; Search for the executable in several possible build directories.
+#if FileExists("..\build\" + MyAppExeName)
+    #define MyAppExeDir "..\build"
+#elif FileExists("..\src\build\" + MyAppExeName)
+    #define MyAppExeDir "..\src\build"
+#elif FileExists("..\src\build\Release\" + MyAppExeName)
+    #define MyAppExeDir "..\src\build\Release"
+#else
+    #error "Could not find " + MyAppExeName + " in any expected build directory."
+#endif
+
 [Setup]
 ; NOTE: The value of AppId uniquely identifies this application. Do not use the same AppId value in installers for other applications.
 ; (To generate a new GUID, click Tools | Generate GUID inside the IDE.)
