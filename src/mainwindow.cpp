@@ -316,7 +316,7 @@ bool MainWindow::on_RefreshCurrencyDataButton_clicked()
 
     try {mainconversiondicts.CurrencyRatios = currencyapi.RefreshRates();}
     catch (const std::exception& e) {
-        if (mainconversiondicts.CurrencyRatios.size() >= 2) {
+        if (bakCRatios.size() >= 2) {
             QMessageBox::warning(
                 this,
                 "Currency Data Error",
