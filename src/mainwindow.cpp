@@ -7,6 +7,7 @@
 
 #include <QMessageBox>
 #include <QDebug>
+#include <limits>
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
@@ -234,11 +235,29 @@ void MainWindow::ConvertWrapper() {
         AdditionalConv additionalconverter(mainconversiondicts);
         result = additionalconverter.TempConvert(fromUnit, toUnit, userInput, shouldRound, shouldSF);
     } else if (category == "Air Flow") {
+        bool widthOK;
+        bool heightOK;
         areaUnit = ui->AreaUnitSelector->currentText();
-        areaHeight = ui->AreaInputBox->text().toDouble();
-        areaWidth = ui->Area2InputBox->text().toDouble();
-        AdditionalConv additionalconverter(mainconversiondicts);
-        result = additionalconverter.AFConvert(fromUnit, toUnit, userInput, areaUnit, areaWidth, areaHeight);
+        areaHeight = ui->AreaInputBox->text().toDouble(&widthOK);
+        areaWidth = ui->Area2InputBox->text().toDouble(&heightOK);
+        if (!widthOK || !heightOK) {
+            QMessageBox::warning(
+                this,
+                "Invalid Input",
+                "Please enter valid area dimensions."
+                );
+            return;
+        } else if (areaHeight == 0 || areaWidth == 0) {
+            QMessageBox::warning(
+                this,
+                "Infinity Warning",
+                "Your area is zero; therefore your result is definitely infinity and almost certainly meaningless."
+                );
+            result = std::numeric_limits<double>::infinity();
+        } else {
+            AdditionalConv additionalconverter(mainconversiondicts);
+            result = additionalconverter.AFConvert(fromUnit, toUnit, userInput, areaUnit, areaWidth, areaHeight);
+        }
     } else {
         result = PrimaryConverter.Convert(category, fromUnit, toUnit, userInput, shouldRound);
     }
