@@ -35,6 +35,12 @@ set_source_files_properties(
     MACOSX_PACKAGE_LOCATION "Resources"
 )
 
+if(WIN32)
+    target_sources(QMultiUnit PRIVATE
+        windows/qmultiunit.rc
+    )
+endif()
+
 # qt_add_translations(
 #     TARGETS QMultiUnit
 #     TS_FILES QMultiUnit_en_US.ts
