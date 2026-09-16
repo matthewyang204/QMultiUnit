@@ -25,6 +25,16 @@ qt_add_resources(QMultiUnit "resources"
         images/qmultiunit.png
 )
 
+set_target_properties(QMultiUnit PROPERTIES
+    MACOSX_BUNDLE_ICON_FILE qmultiunit.icns
+)
+
+set_source_files_properties(
+    images/qmultiunit.icns
+    PROPERTIES
+    MACOSX_PACKAGE_LOCATION "Resources"
+)
+
 # qt_add_translations(
 #     TARGETS QMultiUnit
 #     TS_FILES QMultiUnit_en_US.ts
