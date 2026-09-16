@@ -42,7 +42,7 @@ QString CurrencyAPI::DownloadCurrencyData(){
 
     QString json = QString::fromUtf8(data);
 
-    qInfo() << "Downloaded new currency data:" << json;
+    qInfo() << "I: Downloaded new currency data:" << json;
 
     return json;
 }
