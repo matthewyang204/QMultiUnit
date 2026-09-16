@@ -83,6 +83,9 @@ int SigFigs::GetSigFigs(double value)
     int sigFigs = 0;
 
     for (const QChar& c : strValue) {
+        if (c == 'e' || c == 'E'){
+            break;
+        }
         if (c.isDigit()) {
             ++sigFigs;
         }
