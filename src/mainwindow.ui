@@ -294,7 +294,7 @@
        </font>
       </property>
       <property name="toolTip">
-       <string>Disables rounding the value to the maximum decimals found in the input(s).</string>
+       <string>Disables rounding the value to the minimum decimals found in the input(s).</string>
       </property>
       <property name="text">
        <string>Display exact value</string>
