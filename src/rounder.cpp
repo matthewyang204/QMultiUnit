@@ -19,7 +19,7 @@ int Rounder::GetDecimalPlaces(double number)
 double Rounder::roundtoDecimalPlaces(double number, int decimalPlaces)
 {
     double factor = std::pow(10.0, decimalPlaces);
-    return static_cast<int>(std::round(number * factor) / factor);
+    return std::round(number * factor) / factor;
 }
 
 int Rounder::RoundToNearestInteger(double number)
