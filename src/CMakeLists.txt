@@ -27,7 +27,7 @@ target_link_libraries(QMultiUnit
     PRIVATE
         Qt::Core
         Qt::Widgets
-        Qt6::Network
+        Qt::Network
 )
 
 install(TARGETS QMultiUnit
