@@ -247,11 +247,11 @@ void MainWindow::ConvertWrapper() {
                 "Please enter valid area dimensions."
                 );
             return;
-        } else if (areaHeight == 0 || areaWidth == 0) {
+        } else if ((areaHeight <= 0 || areaWidth <= 0) && (fromUnit == "CFM" || toUnit == "CFM")) {
             QMessageBox::warning(
                 this,
                 "Infinity Warning",
-                "Your area is zero; therefore your result is definitely infinity and almost certainly meaningless."
+                "Your area is zero; therefore your result is definitely infinity or some other certainly meaningless value."
                 );
             result = std::numeric_limits<double>::infinity();
         } else {
