@@ -171,7 +171,14 @@ void MainWindow::on_UnitCategorySelector_currentIndexChanged(int index)
         ui->UnitSelectionBox->clear();
         ui->Unit2SelectionBox->clear();
 
-        on_RefreshCurrencyDataButton_clicked();
+        bool success = on_RefreshCurrencyDataButton_clicked();
+        if (!success){
+            setCurrencyControlsEnabled(false);
+            int index = ui->UnitCategorySelector->findText(previousCategory);
+            ui->UnitCategorySelector->setCurrentIndex(index);
+            on_UnitCategorySelector_currentIndexChanged(index);
+            return;
+        }
 
     } else {
         QMessageBox::warning(
@@ -193,6 +200,8 @@ void MainWindow::on_UnitCategorySelector_currentIndexChanged(int index)
     if (ui->Unit2SelectionBox->count() > 1) {
         ui->Unit2SelectionBox->setCurrentIndex(1);
     }
+
+    previousCategory = category;
 }
 
 void MainWindow::ConvertWrapper() {
@@ -279,12 +288,25 @@ void MainWindow::on_Input_returnPressed()
     ConvertWrapper();
 }
 
-void MainWindow::on_RefreshCurrencyDataButton_clicked()
+bool MainWindow::on_RefreshCurrencyDataButton_clicked()
 {
     CurrencyAPI currencyapi;
     setCurrencyControlsEnabled(false);
+    ui->ProgressBar1->setVisible(true);
+    QMap<QString, double> bakCRatios = mainconversiondicts.CurrencyRatios;
 
-    mainconversiondicts.CurrencyRatios = currencyapi.RefreshRates();
+    try {mainconversiondicts.CurrencyRatios = currencyapi.RefreshRates();}
+    catch (const std::exception& e) {
+        QMessageBox::warning(
+            this,
+            "Currency Data Error",
+            QString("Unable to update currency data, falling back to old data:\n%1")
+                .arg(e.what())
+            );
+        ui->ProgressBar1->setVisible(false);
+        setCurrencyControlsEnabled(true);
+        return false;
+    }
     ui->UnitSelectionBox->clear();
     ui->Unit2SelectionBox->clear();
     QStringList units;
@@ -306,6 +328,9 @@ void MainWindow::on_RefreshCurrencyDataButton_clicked()
     ui->UnitSelectionBox->addItems(units);
     ui->Unit2SelectionBox->addItems(units);
 
+    ui->ProgressBar1->setVisible(false);
     setCurrencyControlsEnabled(true);
+
+    return true;
 }
 

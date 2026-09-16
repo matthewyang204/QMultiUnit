@@ -24,6 +24,7 @@ public:
     void setCurrencyControlsVisible(bool visible);
     void setCurrencyControlsEnabled(bool enabled);
     ConversionDicts mainconversiondicts;
+    QString previousCategory = "Temperature";
 
 private slots:
     void updateAuxiliaryControls();
@@ -39,7 +40,7 @@ private slots:
 
     void on_Input_returnPressed();
 
-    void on_RefreshCurrencyDataButton_clicked();
+    bool on_RefreshCurrencyDataButton_clicked();
 
 private:
     Ui::MainWindow *ui;
