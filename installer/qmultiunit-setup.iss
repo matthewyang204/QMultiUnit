@@ -34,6 +34,7 @@ DisableProgramGroupPage=yes
 PrivilegesRequired=lowest
 PrivilegesRequiredOverridesAllowed=dialog
 OutputBaseFilename=qmultiunit-{#MyAppVersion}-setup
+SetupIconFile=..\src\images\QMultiUnit.ico
 Compression=lzma
 SolidCompression=yes
 WizardStyle=modern
