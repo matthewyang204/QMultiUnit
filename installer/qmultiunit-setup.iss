@@ -15,7 +15,7 @@
 #elif FileExists("..\src\build\Release\" + MyAppExeName)
     #define MyAppExeDir "..\src\build\Release"
 #else
-    #error "Could not find " + MyAppExeName + " in any expected build directory."
+    #error Could not find executable in any expected build directory.
 #endif
 
 [Setup]
