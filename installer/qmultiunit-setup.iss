@@ -8,7 +8,9 @@
 #define MyAppExeName "QMultiUnit.exe"
 
 ; Search for the executable in several possible build directories.
-#if FileExists("..\build\" + MyAppExeName)
+#if FileExists("..\package\" + MyAppExeName)
+    #define MyAppExeDir "..\package"
+#elif FileExists("..\build\" + MyAppExeName)
     #define MyAppExeDir "..\build"
 #elif FileExists("..\src\build\" + MyAppExeName)
     #define MyAppExeDir "..\src\build"
