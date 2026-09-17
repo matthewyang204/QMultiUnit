@@ -22,7 +22,7 @@ qt_add_executable(QMultiUnit
 qt_add_resources(QMultiUnit "resources"
     PREFIX "/"
     FILES
-        images/qmultiunit.png
+        images/qmultiunit-1024.png
 )
 
 set_target_properties(QMultiUnit PROPERTIES

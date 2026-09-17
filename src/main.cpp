@@ -11,7 +11,7 @@ int main(int argc, char *argv[])
     QApplication a(argc, argv);
     a.setStyle(QStyleFactory::create("Fusion"));
 
-    QIcon icon = QIcon(":/images/qmultiunit.png");
+    QIcon icon = QIcon(":/images/qmultiunit-1024.png");
     a.setWindowIcon(icon);
     qDebug() << "I: Icon is null:" << icon.isNull();
 
