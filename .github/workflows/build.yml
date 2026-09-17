@@ -74,6 +74,12 @@ jobs:
             libxcb-xinerama0 \
             libxcb1
 
+      - name: Setup Visual Studio Tools
+        if: matrix.platform == 'windows'
+        uses: egor-tensin/vs-shell@v2
+        with:
+          arch: x64
+
       - name: Configure
         run: >
           cmake
