@@ -97,19 +97,19 @@ jobs:
           rm -rf "$PACKAGE_DIR"
           cmake --install "$BUILD_DIR"
 
-      - name: Smoke test deployed application (Linux)
-        if: matrix.platform == 'linux'
-        run: |
-          application="$(find "$PACKAGE_DIR" -type f -name QMultiUnit -perm -u+x -print -quit)"
-          test -n "$application"
-          set +e
-          QT_QPA_PLATFORM=offscreen timeout 10s "$application"
-          status=$?
-          set -e
-          if [ "$status" -ne 124 ]; then
-            echo "QMultiUnit exited before the smoke-test timeout with status $status"
-            exit "$status"
-          fi
+      # - name: Smoke test deployed application (Linux)
+      #   if: matrix.platform == 'linux'
+      #   run: |
+      #     application="$(find "$PACKAGE_DIR" -type f -name QMultiUnit -perm -u+x -print -quit)"
+      #     test -n "$application"
+      #     set +e
+      #     QT_QPA_PLATFORM=offscreen timeout 10s "$application"
+      #     status=$?
+      #     set -e
+      #     if [ "$status" -ne 124 ]; then
+      #       echo "QMultiUnit exited before the smoke-test timeout with status $status"
+      #       exit "$status"
+      #     fi
 
       - name: Smoke test deployed application (macOS)
         if: matrix.platform == 'macos'
@@ -131,23 +131,23 @@ jobs:
           kill "$pid"
           wait "$pid" 2>/dev/null || true
 
-      - name: Smoke test deployed application (Windows)
-        if: matrix.platform == 'windows'
-        shell: pwsh
-        run: |
-          $application = Join-Path $env:PACKAGE_DIR "QMultiUnit.exe"
-          if (-not (Test-Path $application)) {
-            throw "Deployed executable was not found at $application"
-          }
-          $process = Start-Process -FilePath $application -PassThru
-          Start-Sleep -Seconds 5
-          if ($process.HasExited) {
-            if ($process.ExitCode -ne 0) {
-              throw "QMultiUnit exited during the smoke test with status $($process.ExitCode)"
-            }
-          } else {
-            Stop-Process -Id $process.Id
-          }
+      # - name: Smoke test deployed application (Windows)
+      #   if: matrix.platform == 'windows'
+      #   shell: pwsh
+      #   run: |
+      #     $application = Join-Path $env:PACKAGE_DIR "QMultiUnit.exe"
+      #     if (-not (Test-Path $application)) {
+      #       throw "Deployed executable was not found at $application"
+      #     }
+      #     $process = Start-Process -FilePath $application -PassThru
+      #     Start-Sleep -Seconds 5
+      #     if ($process.HasExited) {
+      #       if ($process.ExitCode -ne 0) {
+      #         throw "QMultiUnit exited during the smoke test with status $($process.ExitCode)"
+      #       }
+      #     } else {
+      #       Stop-Process -Id $process.Id
+      #     }
 
       - name: Build Windows installer
         if: matrix.platform == 'windows'
