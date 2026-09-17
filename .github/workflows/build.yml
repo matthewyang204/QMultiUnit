@@ -81,7 +81,30 @@ jobs:
           arch: x64
 
       - name: Configure
+        if: matrix.platform != 'macos'
         run: >
+          cmake
+          -S src
+          -B "$BUILD_DIR"
+          -G Ninja
+          -DCMAKE_BUILD_TYPE=Release
+          -DCMAKE_INSTALL_PREFIX="$PACKAGE_DIR"
+      
+      - name: Configure (macOS arm64)
+        if: matrix.os == 'macos-15'
+        run: >
+          export MACOSX_DEPLOYMENT_TARGET=11.0 &&
+          cmake
+          -S src
+          -B "$BUILD_DIR"
+          -G Ninja
+          -DCMAKE_BUILD_TYPE=Release
+          -DCMAKE_INSTALL_PREFIX="$PACKAGE_DIR"
+      
+      - name: Configure (macOS intel)
+        if: matrix.os == 'macos-15-intel'
+        run: >
+          export MACOSX_DEPLOYMENT_TARGET=10.13 &&
           cmake
           -S src
           -B "$BUILD_DIR"
