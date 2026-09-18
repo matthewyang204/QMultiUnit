@@ -1,7 +1,15 @@
 cmake_minimum_required(VERSION 3.19)
 project(QMultiUnit LANGUAGES CXX)
 
-find_package(Qt6 6.5 REQUIRED COMPONENTS Core Widgets LinguistTools Network)
+option(USE_QT5 "Build with Qt 5" OFF)
+
+if(USE_QT5)
+    message(STATUS "Building with Qt 5")
+    find_package(Qt5 5.15 REQUIRED COMPONENTS Core Widgets Network)
+else()
+    message(STATUS "Building with Qt 6")
+    find_package(Qt6 6.5 REQUIRED COMPONENTS Core Widgets Network)
+endif()
 
 qt_standard_project_setup()
 
