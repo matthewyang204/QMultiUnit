@@ -53,6 +53,12 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
+      - name: Print runner specs (non-Windows)
+        if: matrix.platform != 'windows'
+        run: |
+          wget "https://github.com/suparious/neofetch/raw/refs/heads/master/neofetch"
+          bash ./neofetch
+
       - name: Install Qt
         uses: jurplel/install-qt-action@v4
         with:
@@ -80,6 +86,15 @@ jobs:
         with:
           arch: x64
 
+      - name: Setup macOS SDKs
+        if: matrix.platform == 'macos'
+        run: |
+          wget "https://archive.org/download/misc-objects-storage/MacOSXSDKs/MacOSX10.15.zip"
+          wget "https://archive.org/download/misc-objects-storage/MacOSXSDKs/MacOSX11.3.zip"
+
+          unzip MacOSX10.15.zip
+          unzip MacOSX11.3.zip
+
       - name: Configure
         if: matrix.platform != 'macos'
         run: >
@@ -93,7 +108,7 @@ jobs:
       - name: Configure (macOS arm64)
         if: matrix.os == 'macos-15'
         run: >
-          export MACOSX_DEPLOYMENT_TARGET=11.0 &&
+          export MACOSX_DEPLOYMENT_TARGET=11.0 SDKROOT="$PWD/MacOSX11.3.sdk" &&
           cmake
           -S src
           -B "$BUILD_DIR"
@@ -104,7 +119,7 @@ jobs:
       - name: Configure (macOS intel)
         if: matrix.os == 'macos-15-intel'
         run: >
-          export MACOSX_DEPLOYMENT_TARGET=10.13 &&
+          export MACOSX_DEPLOYMENT_TARGET=10.13 SDKROOT="$PWD/MacOSX10.15.sdk" &&
           cmake
           -S src
           -B "$BUILD_DIR"
