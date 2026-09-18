@@ -15,8 +15,7 @@ else()
     qt_standard_project_setup()
 endif()
 
-add_executable(QMultiUnit
-    WIN32 MACOSX_BUNDLE
+set(QMULTIUNIT_SOURCES
     mainwindow.cpp
     mainwindow.h
     mainwindow.ui
@@ -28,6 +27,18 @@ add_executable(QMultiUnit
     currencyapi.h currencyapi.cpp
     images/qmultiunit.icns
 )
+
+if(USE_QT5)
+    add_executable(QMultiUnit
+        WIN32 MACOSX_BUNDLE
+        ${QMULTIUNIT_SOURCES}
+    )
+else()
+    qt_add_executable(QMultiUnit
+        WIN32 MACOSX_BUNDLE
+        ${QMULTIUNIT_SOURCES}
+    )
+endif()
 
 if(USE_QT5)
     target_sources(QMultiUnit PRIVATE
