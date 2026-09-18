@@ -33,7 +33,7 @@ if(USE_QT5)
     target_sources(QMultiUnit PRIVATE
     resources.qrc)
 else()
-    add_resources(QMultiUnit "resources"
+    qt_add_resources(QMultiUnit "resources"
         PREFIX "/"
         FILES
             images/qmultiunit-1024.png
