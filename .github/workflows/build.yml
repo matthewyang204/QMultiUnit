@@ -129,7 +129,7 @@ jobs:
       - name: Configure (macOS intel)
         if: matrix.os == 'macos-15-intel'
         run: >
-          export MACOSX_DEPLOYMENT_TARGET=10.13 SDKROOT="$PWD/MacOSX10.15.sdk" &&
+          export MACOSX_DEPLOYMENT_TARGET=10.13 SDKROOT="$PWD/MacOSX10.15.sdk" CXXFLAGS="-isystem $(xcode-select -p)/Toolchains/XcodeDefault.xctoolchain/usr/include/c++/v1" CFLAGS="$CXXFLAGS" &&
           cmake
           -S src
           -B "$BUILD_DIR"
