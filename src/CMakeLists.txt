@@ -6,14 +6,16 @@ option(USE_QT5 "Build with Qt 5" OFF)
 if(USE_QT5)
     message(STATUS "Building with Qt 5")
     find_package(Qt5 5.15 REQUIRED COMPONENTS Core Widgets Network)
+    set(CMAKE_AUTOMOC ON)
+    set(CMAKE_AUTOUIC ON)
+    set(CMAKE_AUTORCC ON)
 else()
     message(STATUS "Building with Qt 6")
     find_package(Qt6 6.5 REQUIRED COMPONENTS Core Widgets Network)
+    qt_standard_project_setup()
 endif()
 
-qt_standard_project_setup()
-
-qt_add_executable(QMultiUnit
+add_executable(QMultiUnit
     WIN32 MACOSX_BUNDLE
     mainwindow.cpp
     mainwindow.h
@@ -27,7 +29,7 @@ qt_add_executable(QMultiUnit
     images/qmultiunit.icns
 )
 
-qt_add_resources(QMultiUnit "resources"
+add_resources(QMultiUnit "resources"
     PREFIX "/"
     FILES
         images/qmultiunit-1024.png
