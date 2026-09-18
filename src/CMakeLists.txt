@@ -29,11 +29,16 @@ add_executable(QMultiUnit
     images/qmultiunit.icns
 )
 
-add_resources(QMultiUnit "resources"
-    PREFIX "/"
-    FILES
-        images/qmultiunit-1024.png
-)
+if(USE_QT5)
+    target_sources(QMultiUnit PRIVATE
+    resources.qrc)
+else()
+    add_resources(QMultiUnit "resources"
+        PREFIX "/"
+        FILES
+            images/qmultiunit-1024.png
+    )
+endif()
 
 set_target_properties(QMultiUnit PROPERTIES
     MACOSX_BUNDLE_ICON_FILE qmultiunit.icns

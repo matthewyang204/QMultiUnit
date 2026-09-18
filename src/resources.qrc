@@ -1,0 +1,5 @@
+<RCC>
+    <qresource prefix="/">
+        <file>images/qmultiunit-1024.png</file>
+    </qresource>
+</RCC>
