@@ -33,21 +33,29 @@ jobs:
         include:
           - platform: windows
             os: windows-2022
+            qtver: 5.15
+            useqt5: ON
           - platform: linux
             os: ubuntu-22.04
+            qtver: 6.5.3
+            useqt5: OFF
           - platform: macos
             os: macos-15-intel
+            qtver: 5.15
+            useqt5: ON
           - platform: macos
             os: macos-15
+            qtver: 6.5.3
+            useqt5: OFF
 
     defaults:
       run:
         shell: bash
 
     env:
-      QT_VERSION: 6.5.3
       BUILD_DIR: ${{ github.workspace }}/build
       PACKAGE_DIR: ${{ github.workspace }}/package
+      USE_QT5: matrix.useqt5
 
     steps:
       - name: Checkout repository
@@ -62,7 +70,7 @@ jobs:
       - name: Install Qt
         uses: jurplel/install-qt-action@v4
         with:
-          version: ${{ env.QT_VERSION }}
+          version: matrix.qtver
           cache: true
 
       - name: Install Linux dependencies
@@ -96,6 +104,7 @@ jobs:
           unzip MacOSX11.3.zip
 
       - name: Configure
+        env: 
         if: matrix.platform != 'macos'
         run: >
           cmake
@@ -104,6 +113,7 @@ jobs:
           -G Ninja
           -DCMAKE_BUILD_TYPE=Release
           -DCMAKE_INSTALL_PREFIX="$PACKAGE_DIR"
+          -DUSE_QT=${{ env.USE_QT5 }}
       
       - name: Configure (macOS arm64)
         if: matrix.os == 'macos-15'
@@ -115,6 +125,7 @@ jobs:
           -G Ninja
           -DCMAKE_BUILD_TYPE=Release
           -DCMAKE_INSTALL_PREFIX="$PACKAGE_DIR"
+          -DUSE_QT=${{ env.USE_QT5 }}
       
       - name: Configure (macOS intel)
         if: matrix.os == 'macos-15-intel'
@@ -126,6 +137,7 @@ jobs:
           -G Ninja
           -DCMAKE_BUILD_TYPE=Release
           -DCMAKE_INSTALL_PREFIX="$PACKAGE_DIR"
+          -DUSE_QT=${{ env.USE_QT5 }}
 
       - name: Build
         run: cmake --build "$BUILD_DIR" --parallel
