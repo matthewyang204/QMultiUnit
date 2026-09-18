@@ -33,7 +33,7 @@ jobs:
         include:
           - platform: windows
             os: windows-2022
-            qtver: 5.15.19
+            qtver: 5.15
             useqt5: ON
           - platform: linux
             os: ubuntu-22.04
@@ -41,7 +41,7 @@ jobs:
             useqt5: OFF
           - platform: macos
             os: macos-15-intel
-            qtver: 5.15.19
+            qtver: 5.15
             useqt5: ON
           - platform: macos
             os: macos-15
