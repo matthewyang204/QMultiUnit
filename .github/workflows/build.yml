@@ -102,7 +102,7 @@ jobs:
       - name: Configure (macOS arm64)
         if: matrix.os == 'macos-15'
         run: >
-          export MACOSX_DEPLOYMENT_TARGET=11.0 &&
+          export MACOSX_DEPLOYMENT_TARGET=11.0 SDKROOT="$PWD/MacOSX11.3.sdk" &&
           cmake
           -S src
           -B "$BUILD_DIR"
@@ -113,7 +113,7 @@ jobs:
       - name: Configure (macOS intel)
         if: matrix.os == 'macos-15-intel'
         run: >
-          export MACOSX_DEPLOYMENT_TARGET=10.13 &&
+          export MACOSX_DEPLOYMENT_TARGET=10.13 SDKROOT="$PWD/MacOSX10.15.sdk" &&
           cmake
           -S src
           -B "$BUILD_DIR"
