@@ -70,7 +70,7 @@ jobs:
       - name: Install Qt
         uses: jurplel/install-qt-action@v4
         with:
-          version: matrix.qtver
+          version: ${{ matrix.qtver }}
           cache: true
 
       - name: Install Linux dependencies
