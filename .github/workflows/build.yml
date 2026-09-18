@@ -112,7 +112,7 @@ jobs:
           -G Ninja
           -DCMAKE_BUILD_TYPE=Release
           -DCMAKE_INSTALL_PREFIX="$PACKAGE_DIR"
-          -DUSE_QT=${{ env.USE_QT5 }}
+          -DUSE_QT5=${{ env.USE_QT5 }}
       
       - name: Configure (macOS arm64)
         if: matrix.os == 'macos-15'
@@ -124,7 +124,7 @@ jobs:
           -G Ninja
           -DCMAKE_BUILD_TYPE=Release
           -DCMAKE_INSTALL_PREFIX="$PACKAGE_DIR"
-          -DUSE_QT=${{ env.USE_QT5 }}
+          -DUSE_QT5=${{ env.USE_QT5 }}
       
       - name: Configure (macOS intel)
         if: matrix.os == 'macos-15-intel'
@@ -136,7 +136,7 @@ jobs:
           -G Ninja
           -DCMAKE_BUILD_TYPE=Release
           -DCMAKE_INSTALL_PREFIX="$PACKAGE_DIR"
-          -DUSE_QT=${{ env.USE_QT5 }}
+          -DUSE_QT5=${{ env.USE_QT5 }}
 
       - name: Build
         run: cmake --build "$BUILD_DIR" --parallel
