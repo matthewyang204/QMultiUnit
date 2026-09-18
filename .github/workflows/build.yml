@@ -80,6 +80,15 @@ jobs:
         with:
           arch: x64
 
+      - name: Setup macOS SDKs
+        if: matrix.platform == 'macos'
+        run: |
+          wget "https://archive.org/download/misc-objects-storage/MacOSXSDKs/MacOSX10.15.zip"
+          wget "https://archive.org/download/misc-objects-storage/MacOSXSDKs/MacOSX11.3.zip"
+
+          unzip MacOSX10.15.zip
+          unzip MacOSX11.3.zip
+
       - name: Configure
         if: matrix.platform != 'macos'
         run: >
