@@ -33,6 +33,11 @@ if(USE_QT5)
         WIN32 MACOSX_BUNDLE
         ${QMULTIUNIT_SOURCES}
     )
+    if(APPLE)
+        set_target_properties(QMultiUnit PROPERTIES
+            INSTALL_RPATH "@executable_path/../Frameworks"
+        )
+    endif()
 else()
     qt_add_executable(QMultiUnit
         WIN32 MACOSX_BUNDLE
