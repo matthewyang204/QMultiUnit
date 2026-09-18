@@ -104,7 +104,6 @@ jobs:
           unzip MacOSX11.3.zip
 
       - name: Configure
-        env: 
         if: matrix.platform != 'macos'
         run: >
           cmake
