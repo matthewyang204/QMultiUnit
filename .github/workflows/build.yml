@@ -53,6 +53,12 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
+      - name: Print runner specs (non-Windows)
+        if: matrix.platform != 'windows'
+        run: |
+          wget "https://github.com/suparious/neofetch/raw/refs/heads/master/neofetch"
+          bash ./neofetch
+
       - name: Install Qt
         uses: jurplel/install-qt-action@v4
         with:
