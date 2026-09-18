@@ -120,6 +120,11 @@ jobs:
           rm -rf "$PACKAGE_DIR"
           cmake --install "$BUILD_DIR"
 
+      - name: Deploy Qt libraries (macOS)
+        if: matrix.platform == 'macos'
+        run: |
+          macdeployqt "$PACKAGE_DIR/QMultiUnit.app"
+
       # - name: Smoke test deployed application (Linux)
       #   if: matrix.platform == 'linux'
       #   run: |
