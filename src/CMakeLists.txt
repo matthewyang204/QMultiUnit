@@ -1,12 +1,21 @@
 cmake_minimum_required(VERSION 3.19)
 project(QMultiUnit LANGUAGES CXX)
 
-find_package(Qt6 6.5 REQUIRED COMPONENTS Core Widgets LinguistTools Network)
+option(USE_QT5 "Build with Qt 5" OFF)
 
-qt_standard_project_setup()
+if(USE_QT5)
+    message(STATUS "Building with Qt 5")
+    find_package(Qt5 5.15 REQUIRED COMPONENTS Core Widgets Network)
+    set(CMAKE_AUTOMOC ON)
+    set(CMAKE_AUTOUIC ON)
+    set(CMAKE_AUTORCC ON)
+else()
+    message(STATUS "Building with Qt 6")
+    find_package(Qt6 6.5 REQUIRED COMPONENTS Core Widgets Network)
+    qt_standard_project_setup()
+endif()
 
-qt_add_executable(QMultiUnit
-    WIN32 MACOSX_BUNDLE
+set(QMULTIUNIT_SOURCES
     mainwindow.cpp
     mainwindow.h
     mainwindow.ui
@@ -19,11 +28,28 @@ qt_add_executable(QMultiUnit
     images/qmultiunit.icns
 )
 
-qt_add_resources(QMultiUnit "resources"
-    PREFIX "/"
-    FILES
-        images/qmultiunit-1024.png
-)
+if(USE_QT5)
+    add_executable(QMultiUnit
+        WIN32 MACOSX_BUNDLE
+        ${QMULTIUNIT_SOURCES}
+    )
+else()
+    qt_add_executable(QMultiUnit
+        WIN32 MACOSX_BUNDLE
+        ${QMULTIUNIT_SOURCES}
+    )
+endif()
+
+if(USE_QT5)
+    target_sources(QMultiUnit PRIVATE
+    resources.qrc)
+else()
+    qt_add_resources(QMultiUnit "resources"
+        PREFIX "/"
+        FILES
+            images/qmultiunit-1024.png
+    )
+endif()
 
 set_target_properties(QMultiUnit PROPERTIES
     MACOSX_BUNDLE_ICON_FILE qmultiunit.icns
@@ -74,9 +100,13 @@ install(TARGETS QMultiUnit
     LIBRARY DESTINATION ${CMAKE_INSTALL_LIBDIR}
 )
 
-qt_generate_deploy_app_script(
-    TARGET QMultiUnit
-    OUTPUT_SCRIPT deploy_script
-    NO_UNSUPPORTED_PLATFORM_ERROR
-)
-install(SCRIPT ${deploy_script})
+if(USE_QT5)
+    message(STATUS "WARNING: Because you are using Qt 5, the automated deployment tools are not available. You will need to deploy the libraries to the application binary manually.")
+else()
+    qt_generate_deploy_app_script(
+        TARGET QMultiUnit
+        OUTPUT_SCRIPT deploy_script
+        NO_UNSUPPORTED_PLATFORM_ERROR
+    )
+    install(SCRIPT ${deploy_script})
+endif()

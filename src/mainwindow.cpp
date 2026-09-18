@@ -107,11 +107,11 @@ void MainWindow::on_UnitCategorySelector_currentIndexChanged(int index)
     QStringList units;
 
     if (category == "Temperature") {
-        units = {
+        units = QStringList({
             "C",
             "F",
             "K"
-        };
+        });
 
     } else if (category == "Speed") {
         for (auto it = mainconversiondicts.SpeedRatios.begin(); it != mainconversiondicts.SpeedRatios.end(); ++it){
@@ -149,14 +149,14 @@ void MainWindow::on_UnitCategorySelector_currentIndexChanged(int index)
         }
 
     } else if (category == "Air Flow") {
-        units = {
+        units = QStringList({
             "CFM",
             "LFM",
             "MPH",
             "km/h",
             "ft/s",
             "m/s"
-        };
+        });
 
         // Make the area input stuff visible
         setAirFlowControlsVisible(true);

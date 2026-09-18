@@ -47,13 +47,23 @@ void setTheme(bool isDark){
 }
 
 bool isSystemDarkMode() {
+#if QT_VERSION >= QT_VERSION_CHECK(6, 5, 0)
     return QGuiApplication::styleHints()->colorScheme() == Qt::ColorScheme::Dark;
+#else
+    QPalette palette = QGuiApplication::palette();
+    return palette.color(QPalette::Window).lightness() < 128;
+#endif
 }
 
 void setThemeListener() {
-    QObject::connect(QGuiApplication::styleHints(), &QStyleHints::colorSchemeChanged,
+#if QT_VERSION >= QT_VERSION_CHECK(6, 5, 0)
+    QObject::connect(QGuiApplication::styleHints(),
+                     &QStyleHints::colorSchemeChanged,
                      [](Qt::ColorScheme colorScheme) {
-                         bool isDark = isSystemDarkMode();
+                         bool isDark = (colorScheme == Qt::ColorScheme::Dark);
                          setTheme(isDark);
                      });
+#else
+    // Qt 5 is incompatible
+#endif
 }
