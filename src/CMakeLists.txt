@@ -89,9 +89,13 @@ install(TARGETS QMultiUnit
     LIBRARY DESTINATION ${CMAKE_INSTALL_LIBDIR}
 )
 
-qt_generate_deploy_app_script(
-    TARGET QMultiUnit
-    OUTPUT_SCRIPT deploy_script
-    NO_UNSUPPORTED_PLATFORM_ERROR
-)
-install(SCRIPT ${deploy_script})
+if(USE_QT5)
+    message(STATUS "WARNING: Because you are using Qt 5, the automated deployment tools are not available. You will need to deploy the libraries to the application binary manually.")
+else()
+    qt_generate_deploy_app_script(
+        TARGET QMultiUnit
+        OUTPUT_SCRIPT deploy_script
+        NO_UNSUPPORTED_PLATFORM_ERROR
+    )
+    install(SCRIPT ${deploy_script})
+endif()
