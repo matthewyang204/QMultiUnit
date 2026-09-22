@@ -1,19 +1,35 @@
 #include "rounder.h"
 
+#include <algorithm>
 #include <cmath>
-#include <string>
 #include <QString>
 
 Rounder::Rounder() {}
 
 int Rounder::GetDecimalPlaces(double number)
 {
-    std::string numberStr = std::to_string(number);
-    size_t decimalPos = numberStr.find('.');
-    if (decimalPos == std::string::npos) {
-        return 0; // No decimal point found
+    if (!std::isfinite(number)) {
+        return 0;
     }
-    return numberStr.length() - decimalPos - 1;
+
+    const QString numberString = QString::number(number, 'g', 15);
+    const int lowerExponentMarker = numberString.indexOf('e');
+    const int upperExponentMarker = numberString.indexOf('E');
+    const int exponentMarker = lowerExponentMarker != -1
+                                    ? lowerExponentMarker
+                                    : upperExponentMarker;
+    const QString mantissa = exponentMarker == -1
+                                 ? numberString
+                                 : numberString.left(exponentMarker);
+    const int decimalPoint = mantissa.indexOf('.');
+    const int exponent = exponentMarker == -1
+                             ? 0
+                             : numberString.mid(exponentMarker + 1).toInt();
+    const int mantissaDecimals = decimalPoint == -1
+                                     ? 0
+                                     : mantissa.length() - decimalPoint - 1;
+
+    return std::max(0, mantissaDecimals - exponent);
 }
 
 double Rounder::roundtoDecimalPlaces(double number, int decimalPlaces)

@@ -322,7 +322,8 @@ void MainWindow::ConvertWrapper() {
         int sigfigcount = SigFigs().GetSigFigsFromList(numbers);
         result = SigFigs().RoundToSigFigs(result, sigfigcount);
     }
-    QString resultString = QString::number(result, 'g', 6);
+    const int displayPrecision = ui->CheckBox1->isChecked() ? 17 : 15;
+    QString resultString = QString::number(result, 'g', displayPrecision);
     ui->ResultBox->setText(resultString);
 }
 
@@ -393,4 +394,3 @@ bool MainWindow::on_RefreshCurrencyDataButton_clicked()
 
     return true;
 }
-
