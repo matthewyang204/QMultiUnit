@@ -32,7 +32,7 @@ MainWindow::MainWindow(QWidget *parent)
             QString(),
             QStringLiteral(
                 "<h3>QMultiUnit v1.0.0</h3>"
-                "<p>Copyright © 2026 Matthew Yang (杨佳明)</p>"
+                "<p>Copyright © 2024-2026 Matthew Yang (杨佳明)</p>"
                 "<p><a href=\"https://github.com/matthewyang204/QMultiUnit\">"
                 "QMultiUnit Home Page</a></p>"
                 R"(<p>This program is free software: you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version.</p>
