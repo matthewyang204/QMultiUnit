@@ -259,6 +259,8 @@ void MainWindow::ConvertWrapper() {
     }
     double result;
     QString areaUnit;
+    QString areaHeightStr;
+    QString areaWidthStr;
     double areaHeight;
     double areaWidth;
     if (category == "Temperature") {
@@ -268,8 +270,10 @@ void MainWindow::ConvertWrapper() {
         bool widthOK;
         bool heightOK;
         areaUnit = ui->AreaUnitSelector->currentText();
-        areaHeight = ui->AreaInputBox->text().toDouble(&widthOK);
-        areaWidth = ui->Area2InputBox->text().toDouble(&heightOK);
+        areaHeightStr = ui->AreaInputBox->text();
+        areaWidthStr = ui->Area2InputBox->text();
+        areaHeight = areaHeightStr.toDouble(&widthOK);
+        areaWidth = areaWidthStr.toDouble(&heightOK);
         if (!widthOK || !heightOK) {
             QMessageBox::warning(
                 this,
@@ -291,58 +295,47 @@ void MainWindow::ConvertWrapper() {
     } else {
         result = PrimaryConverter.Convert(category, fromUnit, toUnit, userInput);
     }
+
+    int decimalPlaces = 0;
+    int significantFigures = 0;
     if (shouldRound && category == "Air Flow"){
-        double fromValue = mainconversiondicts.LengthRatios.value(areaUnit);
-        double toValue = mainconversiondicts.LengthRatios.value(areaUnit);
-        std::vector<double> numbers = {
-            fromValue,
-            toValue,
-            userInput
+        std::vector<QString> numbers = {
+            areaHeightStr,
+            areaWidthStr,
+            userInputStr
         };
-        int deccount = Rounder().GetLowestDecimalPlaces(numbers);
-        result = Rounder().roundtoDecimalPlaces(result, deccount);
+        decimalPlaces = Rounder().GetLowestDecimalPlacesQStr(numbers);
+        result = Rounder().roundtoDecimalPlaces(result, decimalPlaces);
     } else if (shouldSF && category == "Air Flow"){
-        double fromValue = mainconversiondicts.LengthRatios.value(areaUnit);
-        double toValue = mainconversiondicts.LengthRatios.value(areaUnit);
-        std::vector<double> numbers = {
-            fromValue,
-            toValue,
-            userInput
+        std::vector<QString> numbers = {
+            areaHeightStr,
+            areaWidthStr,
+            userInputStr
         };
-        int sigfigcount = SigFigs().GetSigFigsFromList(numbers);
-        result = SigFigs().RoundToSigFigs(result, sigfigcount);
+        significantFigures = SigFigs().GetSigFigsFromListQStr(numbers);
+        result = SigFigs().RoundToSigFigs(result, significantFigures);
     } else if (shouldSF && category == "Temperature"){
-        result = SigFigs::RoundToSigFigs(result, SigFigs::GetSigFigs(userInput));
+        significantFigures = SigFigs::GetSigFigsQStr(userInputStr);
+        result = SigFigs::RoundToSigFigs(result, significantFigures);
     } else if (shouldRound && category == "Temperature"){
-        std::vector<double> numbers = {
-            userInput,
-            result
-        };
-        int decimalPlaces = Rounder().GetLowestDecimalPlaces(numbers);
+        decimalPlaces = Rounder().GetDecimalPlacesQStr(userInputStr);
         result = Rounder().roundtoDecimalPlaces(result, decimalPlaces);
     } else if (shouldRound){
-        double fromValue = PrimaryConverter.GetRatioDictValue(category, fromUnit);
-        double toValue = PrimaryConverter.GetRatioDictValue(category, toUnit);
-        std::vector<double> numbers = {
-            fromValue,
-            toValue,
-            userInput
-        };
-        int decimalPlaces = Rounder().GetLowestDecimalPlaces(numbers);
+        decimalPlaces = Rounder().GetDecimalPlacesQStr(userInputStr);
         result = Rounder().roundtoDecimalPlaces(result, decimalPlaces);
     } else if (shouldSF){
-        double fromValue = PrimaryConverter.GetRatioDictValue(category, fromUnit);
-        double toValue = PrimaryConverter.GetRatioDictValue(category, toUnit);
-        std::vector<double> numbers = {
-            fromValue,
-            toValue,
-            userInput
-        };
-        int sigfigcount = SigFigs().GetSigFigsFromList(numbers);
-        result = SigFigs().RoundToSigFigs(result, sigfigcount);
+        significantFigures = SigFigs().GetSigFigsQStr(userInputStr);
+        result = SigFigs().RoundToSigFigs(result, significantFigures);
     }
-    const int displayPrecision = ui->CheckBox1->isChecked() ? 17 : 15;
-    QString resultString = QString::number(result, 'g', displayPrecision);
+
+    QString resultString;
+    if (ui->CheckBox1->isChecked()) {
+        resultString = QString::number(result, 'g', 17);
+    } else if (shouldSF) {
+        resultString = QString::number(result, 'g', significantFigures);
+    } else {
+        resultString = QString::number(result, 'f', decimalPlaces);
+    }
     ui->ResultBox->setText(resultString);
 }
 
