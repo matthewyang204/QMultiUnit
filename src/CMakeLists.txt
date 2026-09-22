@@ -66,6 +66,15 @@ set_source_files_properties(
     MACOSX_PACKAGE_LOCATION "Resources"
 )
 
+if (MSVC)
+    target_compile_options(QMultiUnit PRIVATE /utf-8)
+elseif (CMAKE_CXX_COMPILER_ID MATCHES "GNU|Clang|AppleClang")
+    target_compile_options(QMultiUnit PRIVATE
+        -finput-charset=UTF-8
+        -fexec-charset=UTF-8
+    )
+endif()
+
 if(WIN32)
     target_sources(QMultiUnit PRIVATE
         windows/qmultiunit.rc
