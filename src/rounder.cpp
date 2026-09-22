@@ -4,6 +4,7 @@
 #include <algorithm>
 #include <cmath>
 #include <QString>
+#include <QRegularExpression>
 
 Rounder::Rounder() {}
 
@@ -96,6 +97,25 @@ int Rounder::GetLowestDecimalPlaces(std::vector<double> numbers)
     return minDecimalPlaces;
 }
 
+int Rounder::GetLowestDecimalPlacesQStr(std::vector<QString> numbers)
+{
+    if (numbers.empty()) {
+        return 0;
+    }
+
+    int minDecimalPlaces = GetDecimalPlacesQStr(numbers[0]);
+
+    for (size_t i = 1; i < numbers.size(); ++i) {
+        int decimalPlaces = GetDecimalPlacesQStr(numbers[i]);
+
+        if (decimalPlaces < minDecimalPlaces) {
+            minDecimalPlaces = decimalPlaces;
+        }
+    }
+
+    return minDecimalPlaces;
+}
+
 double SigFigs::RoundToSigFigs(double value, int sigFigs)
 {
     if (value == 0) {
@@ -169,6 +189,21 @@ int SigFigs::GetSigFigsFromList(const std::vector<double>& values)
 
     for (double value : values) {
         int sigFigs = GetSigFigs(value);
+
+        if (sigFigs > maxSigFigs) {
+            maxSigFigs = sigFigs;
+        }
+    }
+
+    return maxSigFigs;
+}
+
+int SigFigs::GetSigFigsFromListQStr(const std::vector<QString>& values)
+{
+    int maxSigFigs = 0;
+
+    for (QString value : values) {
+        int sigFigs = GetSigFigsQStr(value);
 
         if (sigFigs > maxSigFigs) {
             maxSigFigs = sigFigs;
