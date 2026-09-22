@@ -118,16 +118,15 @@ int Rounder::GetLowestDecimalPlacesQStr(std::vector<QString> numbers)
 
 double SigFigs::RoundToSigFigs(double value, int sigFigs)
 {
-    if (value == 0) {
-        return 0;
+    if (value == 0 || !std::isfinite(value) || sigFigs <= 0) {
+        return value;
     }
 
-    double scale = std::pow(
-        10.0,
-        std::floor(std::log10(std::abs(value))) + 1 - sigFigs
-        );
+    const int leadingPlace =
+        static_cast<int>(std::floor(std::log10(std::abs(value))));
+    const int precision = leadingPlace - sigFigs + 1;
 
-    return std::round(value / scale) * scale;
+    return SigFig(value, precision).value();
 }
 
 int SigFigs::GetSigFigs(double value)
