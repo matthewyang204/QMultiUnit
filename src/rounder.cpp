@@ -132,7 +132,7 @@ int SigFigs::GetSigFigs(double value)
     return sigFigs;
 }
 
-int GetSigFigsQStr(QString value)
+int SigFigs::GetSigFigsQStr(QString value)
 {
     QString strValue = value;
 
