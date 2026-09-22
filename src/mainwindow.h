@@ -27,6 +27,8 @@ public:
     QString previousCategory = "Temperature";
 
 private slots:
+    void setupToolbar();
+
     void updateAuxiliaryControls();
     void updateRoundingControls();
 
