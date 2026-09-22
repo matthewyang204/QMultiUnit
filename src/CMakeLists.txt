@@ -25,6 +25,7 @@ set(QMULTIUNIT_SOURCES
     darkmode.cpp darkmode.h
     additionalconv.h additionalconv.cpp
     currencyapi.h currencyapi.cpp
+    sigfig/SigFig.cpp sigfig/SigFig.h
     images/qmultiunit.icns
 )
 
