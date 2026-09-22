@@ -211,9 +211,19 @@ jobs:
           options: /O+
 
       - name: Upload deployed binary
+        if: matrix.platform != 'macos'
         uses: actions/upload-artifact@v4
         with:
           name: QMultiUnit-${{ matrix.platform }}
+          path: ${{ env.PACKAGE_DIR }}
+          if-no-files-found: error
+          retention-days: 14
+
+      - name: Upload deployed binary (macOS)
+        if: matrix.platform == 'macos'
+        uses: actions/upload-artifact@v4
+        with:
+          name: QMultiUnit-${{ matrix.os }}
           path: ${{ env.PACKAGE_DIR }}
           if-no-files-found: error
           retention-days: 14
