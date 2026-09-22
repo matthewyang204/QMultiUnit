@@ -8,6 +8,7 @@ class Rounder
 public:
     Rounder();
     int GetDecimalPlaces(double number);
+    int GetDecimalPlacesQStr(QString number);
     double roundtoDecimalPlaces(double number, int decimalPlaces);
     int RoundToNearestInteger(double number);
     int GetHighestDecimalPlaces(std::vector<double> numbers);
@@ -19,6 +20,7 @@ class SigFigs
 public:
     static double RoundToSigFigs(double value, int sigFigs);
     static int GetSigFigs(double value);
+    static int GetSigFigsQStr(QString value);
     static int GetSigFigsFromList(const std::vector<double>& values);
 };
 

@@ -1,4 +1,5 @@
 #include "rounder.h"
+#include "sigfig/SigFig.h"
 
 #include <algorithm>
 #include <cmath>
@@ -13,6 +14,27 @@ int Rounder::GetDecimalPlaces(double number)
     }
 
     const QString numberString = QString::number(number, 'g', 15);
+    const int lowerExponentMarker = numberString.indexOf('e');
+    const int upperExponentMarker = numberString.indexOf('E');
+    const int exponentMarker = lowerExponentMarker != -1
+                                    ? lowerExponentMarker
+                                    : upperExponentMarker;
+    const QString mantissa = exponentMarker == -1
+                                 ? numberString
+                                 : numberString.left(exponentMarker);
+    const int decimalPoint = mantissa.indexOf('.');
+    const int exponent = exponentMarker == -1
+                             ? 0
+                             : numberString.mid(exponentMarker + 1).toInt();
+    const int mantissaDecimals = decimalPoint == -1
+                                     ? 0
+                                     : mantissa.length() - decimalPoint - 1;
+
+    return std::max(0, mantissaDecimals - exponent);
+}
+
+int Rounder::GetDecimalPlacesQStr(QString number){
+    const QString numberString = number;
     const int lowerExponentMarker = numberString.indexOf('e');
     const int upperExponentMarker = numberString.indexOf('E');
     const int exponentMarker = lowerExponentMarker != -1
@@ -103,6 +125,37 @@ int SigFigs::GetSigFigs(double value)
             break;
         }
         if (c.isDigit()) {
+            ++sigFigs;
+        }
+    }
+
+    return sigFigs;
+}
+
+int GetSigFigsQStr(QString value)
+{
+    QString strValue = value;
+
+    if (strValue.startsWith('+') || strValue.startsWith('-')) {
+        strValue.remove(0, 1);
+    }
+
+    const int exponentMarker = strValue.indexOf(QRegularExpression("[eE]"));
+    if (exponentMarker != -1) {
+        strValue = strValue.left(exponentMarker);
+    }
+
+    int firstSignificant = 0;
+
+    while (firstSignificant < strValue.length() &&
+           strValue[firstSignificant] == '0') {
+        ++firstSignificant;
+    }
+
+    int sigFigs = 0;
+
+    for (int i = firstSignificant; i < strValue.length(); ++i) {
+        if (strValue[i].isDigit()) {
             ++sigFigs;
         }
     }
