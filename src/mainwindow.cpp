@@ -263,7 +263,7 @@ void MainWindow::ConvertWrapper() {
     double areaWidth;
     if (category == "Temperature") {
         AdditionalConv additionalconverter(mainconversiondicts);
-        result = additionalconverter.TempConvert(fromUnit, toUnit, userInput, shouldRound, shouldSF);
+        result = additionalconverter.TempConvert(fromUnit, toUnit, userInput);
     } else if (category == "Air Flow") {
         bool widthOK;
         bool heightOK;
@@ -289,7 +289,7 @@ void MainWindow::ConvertWrapper() {
             result = additionalconverter.AFConvert(fromUnit, toUnit, userInput, areaUnit, areaWidth, areaHeight);
         }
     } else {
-        result = PrimaryConverter.Convert(category, fromUnit, toUnit, userInput, shouldRound);
+        result = PrimaryConverter.Convert(category, fromUnit, toUnit, userInput);
     }
     if (shouldRound && category == "Air Flow"){
         double fromValue = mainconversiondicts.LengthRatios.value(areaUnit);
@@ -311,7 +311,26 @@ void MainWindow::ConvertWrapper() {
         };
         int sigfigcount = SigFigs().GetSigFigsFromList(numbers);
         result = SigFigs().RoundToSigFigs(result, sigfigcount);
-    } else if (shouldSF && category != "Temperature"){
+    } else if (shouldSF && category == "Temperature"){
+        result = SigFigs::RoundToSigFigs(result, SigFigs::GetSigFigs(userInput));
+    } else if (shouldRound && category == "Temperature"){
+        std::vector<double> numbers = {
+            userInput,
+            result
+        };
+        int decimalPlaces = Rounder().GetLowestDecimalPlaces(numbers);
+        result = Rounder().roundtoDecimalPlaces(result, decimalPlaces);
+    } else if (shouldRound){
+        double fromValue = PrimaryConverter.GetRatioDictValue(category, fromUnit);
+        double toValue = PrimaryConverter.GetRatioDictValue(category, toUnit);
+        std::vector<double> numbers = {
+            fromValue,
+            toValue,
+            userInput
+        };
+        int decimalPlaces = Rounder().GetLowestDecimalPlaces(numbers);
+        result = Rounder().roundtoDecimalPlaces(result, decimalPlaces);
+    } else if (shouldSF){
         double fromValue = PrimaryConverter.GetRatioDictValue(category, fromUnit);
         double toValue = PrimaryConverter.GetRatioDictValue(category, toUnit);
         std::vector<double> numbers = {

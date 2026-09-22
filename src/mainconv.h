@@ -139,7 +139,7 @@ class MainConverter
 {
 public:
     MainConverter(ConversionDicts& mainconversiondicts);
-    double Convert(QString category, QString fromUnit, QString toUnit, double userInput, bool shouldRound);
+    double Convert(QString category, QString fromUnit, QString toUnit, double userInput);
     double GetRatioDictValue(QString category, QString unit);
 private:
     ConversionDicts& primaryconversiondicts;

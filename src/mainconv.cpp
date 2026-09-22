@@ -1,8 +1,6 @@
 #include "mainconv.h"
-#include "rounder.h"
 
 #include <stdexcept>
-#include <QApplication>
 
 ConversionDicts::ConversionDicts() {
     for (auto it = MassRatios.begin(); it != MassRatios.end(); ++it){
@@ -14,7 +12,7 @@ MainConverter::MainConverter(ConversionDicts& mainconversiondicts)
     : primaryconversiondicts(mainconversiondicts)
 {}
 
-double MainConverter::Convert(QString category, QString fromUnit, QString toUnit, double userInput, bool shouldRound) {
+double MainConverter::Convert(QString category, QString fromUnit, QString toUnit, double userInput) {
     QMap<QString, double> selectedDict;
     
     if (category == "Length") {
@@ -47,17 +45,7 @@ double MainConverter::Convert(QString category, QString fromUnit, QString toUnit
         throw std::invalid_argument("Invalid unit for the selected category");
     }
 
-    std::vector<double> numbers = {selectedDict[fromUnit], selectedDict[toUnit], userInput};
-
-    Rounder rounder;
-    int highestDecimalPlaces = rounder.GetLowestDecimalPlaces(numbers);
-    double result = userInput * (selectedDict[fromUnit] / selectedDict[toUnit]);
-    double roundedResult = rounder.roundtoDecimalPlaces(result, highestDecimalPlaces);
-
-    if (shouldRound) {
-        return roundedResult;
-    }
-    return result;
+    return userInput * (selectedDict[fromUnit] / selectedDict[toUnit]);
 }
 
 double MainConverter::GetRatioDictValue(QString category, QString unit){

@@ -1,6 +1,5 @@
 #include "additionalconv.h"
 #include "mainconv.h"
-#include "rounder.h"
 
 #include <stdexcept>
 
@@ -8,12 +7,8 @@ AdditionalConv::AdditionalConv(ConversionDicts& mainconversiondicts)
     : primaryconversiondicts(mainconversiondicts)
 {}
 
-double AdditionalConv::TempConvert(QString fromUnit, QString toUnit, double userInput, bool shouldRound, bool shouldSF) {
+double AdditionalConv::TempConvert(QString fromUnit, QString toUnit, double userInput) {
     double calcTemp;
-
-    if (shouldRound && shouldSF){
-        throw std::invalid_argument("Both shouldRound and shouldSF cannot be true at same time.");
-    }
 
     if (fromUnit == "C" && toUnit == "F"){
         calcTemp = (userInput * (9.0/5.0)) + 32.0;
@@ -31,21 +26,6 @@ double AdditionalConv::TempConvert(QString fromUnit, QString toUnit, double user
         return userInput;
     } else {
         throw std::invalid_argument("Invalid Temperature conversion.");
-    }
-
-    if (shouldSF) {
-        int sigfigcount = SigFigs::GetSigFigs(userInput);
-        calcTemp = SigFigs::RoundToSigFigs(calcTemp, sigfigcount);
-    } else if (shouldRound) {
-        Rounder rounder;
-
-        std::vector<double> numbers = {
-            userInput,
-            calcTemp
-        };
-
-        int decimalPlaces = rounder.GetLowestDecimalPlaces(numbers);
-        calcTemp = rounder.roundtoDecimalPlaces(calcTemp, decimalPlaces);
     }
 
     return calcTemp;
