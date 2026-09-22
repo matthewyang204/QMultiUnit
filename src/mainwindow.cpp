@@ -17,6 +17,13 @@ MainWindow::MainWindow(QWidget *parent)
 {
     ui->setupUi(this);
 
+#if defined(Q_OS_IOS) || defined(Q_OS_ANDROID)
+    ui->menubar->hide();
+    setupToolbar();
+#else
+    ui->toolBar->hide();
+#endif
+
     connect(ui->CheckBox1, &QCheckBox::toggled,
             this, &MainWindow::updateRoundingControls);
     connect(ui->actionAbout, &QAction::triggered, this, [this]() {
@@ -49,6 +56,12 @@ MainWindow::MainWindow(QWidget *parent)
 MainWindow::~MainWindow()
 {
     delete ui;
+}
+
+void MainWindow::setupToolbar(){
+    ui->toolBar->setMovable(false);
+    ui->toolBar->addAction(ui->actionAbout);
+    ui->toolBar->addAction(ui->actionAbout_Qt);
 }
 
 void MainWindow::setProgressControlsVisible(bool visible)
