@@ -4,6 +4,7 @@
 #include "rounder.h"
 #include "additionalconv.h"
 #include "currencyapi.h"
+#include "debugSSL.h"
 
 #include <QMessageBox>
 #include <QDebug>
@@ -51,6 +52,8 @@ MainWindow::MainWindow(QWidget *parent)
     setCurrencyControlsVisible(false);
 
     MainWindow::on_UnitCategorySelector_currentIndexChanged(0);
+
+    printSSLInfo();
 }
 
 MainWindow::~MainWindow()

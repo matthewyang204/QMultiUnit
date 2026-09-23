@@ -26,6 +26,7 @@ set(QMULTIUNIT_SOURCES
     additionalconv.h additionalconv.cpp
     currencyapi.h currencyapi.cpp
     sigfig/SigFig.cpp sigfig/SigFig.h
+    debugSSL.h debugSSL.cpp
     images/qmultiunit.icns
 )
 
