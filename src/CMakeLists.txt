@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.19)
-project(QMultiUnit LANGUAGES CXX)
+project(QMultiUnit VERSION 1.0.0 LANGUAGES CXX)
 
 option(USE_QT5 "Build with Qt 5" OFF)
 
