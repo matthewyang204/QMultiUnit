@@ -88,3 +88,7 @@ build.ninja
 # Inno Setup
 Output/
 *.exe
+
+# Build scripts
+/build4android*.sh
+/build4android*-release.sh
