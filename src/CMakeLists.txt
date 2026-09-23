@@ -59,6 +59,7 @@ endif()
 
 set_target_properties(QMultiUnit PROPERTIES
     MACOSX_BUNDLE_ICON_FILE qmultiunit.icns
+    MACOSX_BUNDLE_GUI_IDENTIFIER "com.matthewyang.QMultiUnit"
 )
 
 set_source_files_properties(
