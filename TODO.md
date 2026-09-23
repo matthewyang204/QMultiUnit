@@ -4,4 +4,4 @@
 - [x] Fix legacy compatibility (should be at least Qt 5.15)
 - [x] Make network stack optional in RAM cost for non-currency users
 - [x] Get running on iOS
-- [ ] Get running on Android
+- [x] Get running on Android
