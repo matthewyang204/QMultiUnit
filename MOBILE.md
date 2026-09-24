@@ -37,7 +37,7 @@ will need to connect it via adb first):
    adb install -r path/to/QMultiUnit.apk
    ```
 
-5. Launch **QMultiUnit** from the device's app launcher.
+4. Launch **QMultiUnit** from the device's app launcher.
 
 If Android reports that the package cannot be installed, uninstall an older
 build with the same package ID first, or ensure that the new APK is signed
