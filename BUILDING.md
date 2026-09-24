@@ -71,16 +71,13 @@ configured prefix:
 cmake --install build
 ```
 
-On macOS, deploy Qt frameworks into the application bundle after installing:
-
-```sh
-macdeployqt package/QMultiUnit.app
-```
-
-On Windows, the build automatically runs `windeployqt` as a post-build step.
+On Windows and macOS, the build automatically runs `windeployqt` or `macdeployqt` respectively as a post-build step.
 To create the installer, open `installer/qmultiunit-setup.iss` with Inno Setup
 and compile it. The script looks for the executable in `package`, `build`, or
 the corresponding `src/build` directories.
+
+On Linux, the program copies all the dependencies automatically to the install prefix, so there should not be an issue
+with missing Qt libraries.
 
 ## IDE builds
 
