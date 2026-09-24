@@ -1,6 +1,6 @@
 # QMultiUnit
 
-<img alt="QMultiUnit screenshot" src="https://raw.githubusercontent.com/matthewyang204/MultiUnit/main/assets/screenshot-1.png" />
+<img alt="QMultiUnit screenshot" src="https://archive.org/download/misc-objects-storage/QMultiUnit-screenshot-1.png" />
 
 QMultiUnit is a unit converter built with C++ and Qt. It is available as a
 portable application, and the Windows build can also be packaged as an
