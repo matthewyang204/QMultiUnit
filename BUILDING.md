@@ -38,7 +38,7 @@ libxcb-keysyms1 libxcb-render-util0 libxcb-shape0 libxcb-xinerama0 libxcb1
 Run these commands from the repository root:
 
 ```sh
-cmake -S src -B build -G Ninja \
+<Qt prefix>/<version>/<platform>/bin/qt-cmake -S src -B build -G Ninja \
   -DCMAKE_BUILD_TYPE=Release \
   -DCMAKE_INSTALL_PREFIX="$PWD/package"
 cmake --build build --parallel
@@ -48,7 +48,7 @@ The Qt 6 build is configured by default. For Qt 5, add
 `-DUSE_QT5=ON` to the configure command:
 
 ```sh
-cmake -S src -B build-qt5 -G Ninja \
+<Qt prefix>/<version>/<platform>/bin/qt-cmake -S src -B build-qt5 -G Ninja \
   -DCMAKE_BUILD_TYPE=Release \
   -DCMAKE_INSTALL_PREFIX="$PWD/package-qt5" \
   -DUSE_QT5=ON
