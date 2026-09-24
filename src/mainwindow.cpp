@@ -404,6 +404,15 @@ bool MainWindow::on_RefreshCurrencyDataButton_clicked()
     ui->Unit2SelectionBox->addItems(units);
     bakCRatios = mainconversiondicts.CurrencyRatios;
 
+    // Set default selections
+    if (ui->UnitSelectionBox->count() > 0) {
+        ui->UnitSelectionBox->setCurrentIndex(0);
+    }
+
+    if (ui->Unit2SelectionBox->count() > 1) {
+        ui->Unit2SelectionBox->setCurrentIndex(1);
+    }
+    
     ui->ProgressBar1->setVisible(false);
     setCurrencyControlsEnabled(true);
 
