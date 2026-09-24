@@ -29,13 +29,8 @@ See the official documentation for instructions
 
 1. Enable **Developer options** and **USB debugging** on the Android device.
 2. Connect the device over USB and accept its debugging authorization prompt.
-3. Confirm that Android Debug Bridge can see the device:
-
-   ```sh
-   adb devices
-   ```
-
-4. Install the APK, replacing the path with the APK produced by the build:
+3. Install the APK, replacing the path with the APK produced by the build (note that you
+will need to connect it via adb first):
 
    ```sh
    adb install -r path/to/QMultiUnit.apk
