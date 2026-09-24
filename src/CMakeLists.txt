@@ -15,6 +15,26 @@ else()
     qt_standard_project_setup()
 endif()
 
+find_package(Git REQUIRED)
+if(EXISTS "${CMAKE_SOURCE_DIR}/.gitmodules")
+    execute_process(
+        COMMAND "${GIT_EXECUTABLE}" submodule update --init --recursive
+        WORKING_DIRECTORY "${CMAKE_SOURCE_DIR}"
+        RESULT_VARIABLE GIT_SUBMODULE_RESULT
+    )
+
+    if(NOT GIT_SUBMODULE_RESULT EQUAL 0)
+        message(FATAL_ERROR
+            "Failed to initialize/update Git submodules "
+            "(exit code ${GIT_SUBMODULE_RESULT})"
+        )
+    endif()
+endif()
+
+if(ANDROID)
+    include(android_openssl/android_openssl.cmake)
+endif()
+
 set(QMULTIUNIT_SOURCES
     mainwindow.cpp
     mainwindow.h
@@ -98,6 +118,9 @@ if(WIN32)
         COMMENT "Deploying Qt dependencies..."
     )
 endif()
+
+if(ANDROID)
+    add_android_openssl_libraries(QMultiUnit)
 
 # qt_add_translations(
 #     TARGETS QMultiUnit
