@@ -59,6 +59,9 @@ If CMake cannot find Qt, set `CMAKE_PREFIX_PATH` to the Qt installation
 directory, or select the Qt installation through your IDE's CMake
 configuration.
 
+Additionally, on macOS, the `SDKROOT` and `MACOSX_DEPLOYMENT_TARGET` environment variables
+can be used to control which macOS SDK and target version are used for the build.
+
 ## Install or package the build
 
 Install the built application and its Qt runtime dependencies into the
