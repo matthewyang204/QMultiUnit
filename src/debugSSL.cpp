@@ -2,13 +2,13 @@
 #include <QDebug>
 
 void printSSLInfo(){
-    qDebug() << "supportsSsl:" << QSslSocket::supportsSsl();
-    qDebug() << "sslLibraryVersion:"
+    qDebug() << "D: supportsSsl:" << QSslSocket::supportsSsl();
+    qDebug() << "D: sslLibraryVersion:"
             << QSslSocket::sslLibraryVersionString();
-    qDebug() << "sslLibraryBuildVersion:"
+    qDebug() << "D: sslLibraryBuildVersion:"
             << QSslSocket::sslLibraryBuildVersionString();
-    qDebug() << "availableBackends:"
+    qDebug() << "D: availableBackends:"
             << QSslSocket::availableBackends();
-    qDebug() << "activeBackend:"
+    qDebug() << "D: activeBackend:"
             << QSslSocket::activeBackend();
 }
