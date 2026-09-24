@@ -122,6 +122,12 @@ endif()
 if(ANDROID)
     add_android_openssl_libraries(QMultiUnit)
 
+    set_target_properties(QMultiUnit PROPERTIES
+        QT_ANDROID_PACKAGE_SOURCE_DIR
+            "${CMAKE_CURRENT_SOURCE_DIR}/android"
+    )
+endif()
+
 # qt_add_translations(
 #     TARGETS QMultiUnit
 #     TS_FILES QMultiUnit_en_US.ts
