@@ -40,6 +40,8 @@ steps, and Windows installer instructions for desktop are documented in
 
 Info for mobile platforms is in [MOBILE.md](MOBILE.md).
 
+Qt also has pretty good documentation for those new to building applications with it on its [website](https://doc.qt.io/).
+
 ## License
 
 QMultiUnit is licensed under the GNU General Public License v3.0. See
