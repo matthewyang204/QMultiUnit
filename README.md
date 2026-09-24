@@ -3,8 +3,8 @@
 <img alt="QMultiUnit screenshot" src="https://archive.org/download/misc-objects-storage/QMultiUnit-screenshot-1.png" width="450"/>
 
 QMultiUnit is a unit converter built with C++ and Qt. It is available as a
-portable application bundle for macOS & Linux, and the Windows build are packaged as a
-installer.
+portable application bundle for macOS & Linux, and the Windows build are packaged as an
+installer that can be installed into either the per-user program files or the system program files directories.
 
 ## System requirements
 - Windows 7 or later, macOS High Sierra or later, Linux (any modern distribution), iOS 15 or later, or Android 10 or later
