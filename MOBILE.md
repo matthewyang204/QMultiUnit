@@ -73,8 +73,8 @@ Use Xcode to install the signed development build directly:
 
 For installing it via AltStore:
 1. Follow AltStore Classic/PAL instructions for installing AltStore on your device.
-2. Make a Payload folder and move the app bundle into it. ZIP the Payload folder and rename it to `QMultiUnit.ipa`.
-3. Open AltStore on your device, transfer the IPA, and use it to install the `QMultiUnit.ipa` file.
+2. Make a `Payload` folder and move the app bundle into it. Put the `Payload` folder into a ZIP archive and rename it to `QMultiUnit.ipa`.
+3. Open AltStore on your device, transfer the IPA, and use it to install the `QMultiUnit.ipa` file. The app should promptly appear on the device's home screen.
 
 ## Current limitations
 
