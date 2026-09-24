@@ -10,7 +10,7 @@ installer.
 - Windows 7 or later, macOS High Sierra or later, Linux (any modern distribution), iOS 15 or later, or Android 10 or later
 
 ### Additional Requirements For Building From Source
-- Windows 10 or later, macOS Big Sur or later, or Linux (6.x or later)
+- Windows 10 or later, macOS Big Sur or later, or Linux (same as the system requirements above)
 - Qt 6.5 or later (recommended), or Qt 5.15 when building with the Qt 5
   compatibility option
 - CMake 3.19 or later
