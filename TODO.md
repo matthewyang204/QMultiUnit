@@ -5,3 +5,4 @@
 - [x] Make network stack optional in RAM cost for non-currency users
 - [x] Get running on iOS
 - [x] Get running on Android
+- [ ] Add scientific notation display option
