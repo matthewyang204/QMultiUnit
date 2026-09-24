@@ -6,7 +6,8 @@ development build.
 
 The project currently includes an Android packaging manifest under
 [`src/android`](src/android). iOS builds require an Apple development
-environment and signing identity.
+environment and signing identity (only need a free developer account to get one if your goal
+is to build for development only).
 
 ## Android
 
