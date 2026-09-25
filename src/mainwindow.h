@@ -44,6 +44,8 @@ private slots:
 
     bool on_RefreshCurrencyDataButton_clicked();
 
+    void on_sciCheckBox_stateChanged(int arg1);
+
 private:
     Ui::MainWindow *ui;
     MainConverter PrimaryConverter;

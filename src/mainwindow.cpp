@@ -82,9 +82,11 @@ void MainWindow::updateAuxiliaryControls()
 
 void MainWindow::updateRoundingControls()
 {
-    ui->CheckBox2->setEnabled(!ui->CheckBox1->isChecked());
-    if (ui->CheckBox1->isChecked()) {
+    if (ui->CheckBox1->isChecked() || ui->sciCheckBox->isChecked()) {
         ui->CheckBox2->setChecked(false);
+        ui->CheckBox2->setEnabled(false);
+    } else {
+        ui->CheckBox2->setEnabled(true);
     }
 }
 
@@ -420,3 +422,9 @@ bool MainWindow::on_RefreshCurrencyDataButton_clicked()
 
     return true;
 }
+
+void MainWindow::on_sciCheckBox_stateChanged(int arg1)
+{
+    updateRoundingControls();
+}
+
