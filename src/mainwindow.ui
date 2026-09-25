@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>484</width>
-    <height>571</height>
+    <height>584</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -15,176 +15,6 @@
   </property>
   <widget class="QWidget" name="centralwidget">
    <layout class="QGridLayout" name="gridLayout">
-    <item row="3" column="0">
-     <widget class="QLineEdit" name="ResultBox">
-      <property name="font">
-       <font>
-        <family>Calibri</family>
-        <pointsize>16</pointsize>
-       </font>
-      </property>
-      <property name="readOnly">
-       <bool>true</bool>
-      </property>
-     </widget>
-    </item>
-    <item row="9" column="0">
-     <layout class="QHBoxLayout" name="areaInputLayout">
-      <item>
-       <widget class="QLabel" name="Label7">
-        <property name="font">
-         <font>
-          <family>Calibri</family>
-          <pointsize>16</pointsize>
-         </font>
-        </property>
-        <property name="text">
-         <string>L:</string>
-        </property>
-       </widget>
-      </item>
-      <item>
-       <widget class="QLineEdit" name="AreaInputBox">
-        <property name="font">
-         <font>
-          <family>Calibri</family>
-          <pointsize>16</pointsize>
-         </font>
-        </property>
-       </widget>
-      </item>
-      <item>
-       <widget class="QLabel" name="Label6">
-        <property name="font">
-         <font>
-          <family>Calibri</family>
-          <pointsize>16</pointsize>
-         </font>
-        </property>
-        <property name="text">
-         <string>W:</string>
-        </property>
-       </widget>
-      </item>
-      <item>
-       <widget class="QLineEdit" name="Area2InputBox">
-        <property name="font">
-         <font>
-          <family>Calibri</family>
-          <pointsize>16</pointsize>
-         </font>
-        </property>
-       </widget>
-      </item>
-      <item>
-       <widget class="QComboBox" name="AreaUnitSelector">
-        <property name="font">
-         <font>
-          <family>Calibri</family>
-          <pointsize>16</pointsize>
-         </font>
-        </property>
-        <item>
-         <property name="text">
-          <string>Meters</string>
-         </property>
-        </item>
-        <item>
-         <property name="text">
-          <string>Yards</string>
-         </property>
-        </item>
-        <item>
-         <property name="text">
-          <string>Centimeters</string>
-         </property>
-        </item>
-        <item>
-         <property name="text">
-          <string>Millimeters</string>
-         </property>
-        </item>
-        <item>
-         <property name="text">
-          <string>Inches</string>
-         </property>
-        </item>
-        <item>
-         <property name="text">
-          <string>Kilometers</string>
-         </property>
-        </item>
-        <item>
-         <property name="text">
-          <string>Miles</string>
-         </property>
-        </item>
-        <item>
-         <property name="text">
-          <string>Feet</string>
-         </property>
-        </item>
-        <item>
-         <property name="text">
-          <string>Decimeters</string>
-         </property>
-        </item>
-       </widget>
-      </item>
-     </layout>
-    </item>
-    <item row="10" column="0">
-     <widget class="QPushButton" name="RefreshCurrencyDataButton">
-      <property name="font">
-       <font>
-        <family>Calibri</family>
-        <pointsize>16</pointsize>
-       </font>
-      </property>
-      <property name="text">
-       <string>Refresh Currency Data</string>
-      </property>
-      <property name="flat">
-       <bool>false</bool>
-      </property>
-     </widget>
-    </item>
-    <item row="6" column="0">
-     <widget class="QLabel" name="label">
-      <property name="text">
-       <string/>
-      </property>
-     </widget>
-    </item>
-    <item row="4" column="0">
-     <widget class="QCheckBox" name="CheckBox2">
-      <property name="font">
-       <font>
-        <family>Calibri</family>
-        <pointsize>16</pointsize>
-       </font>
-      </property>
-      <property name="text">
-       <string>Round using significant figures instead</string>
-      </property>
-     </widget>
-    </item>
-    <item row="1" column="0">
-     <widget class="QPushButton" name="ConvertButton">
-      <property name="font">
-       <font>
-        <family>Calibri</family>
-        <pointsize>16</pointsize>
-       </font>
-      </property>
-      <property name="text">
-       <string>Convert</string>
-      </property>
-      <property name="flat">
-       <bool>false</bool>
-      </property>
-     </widget>
-    </item>
     <item row="5" column="0">
      <widget class="QCheckBox" name="CheckBox1">
       <property name="font">
@@ -201,8 +31,8 @@
       </property>
      </widget>
     </item>
-    <item row="8" column="0">
-     <widget class="QLabel" name="Label5">
+    <item row="4" column="0">
+     <widget class="QCheckBox" name="CheckBox2">
       <property name="font">
        <font>
         <family>Calibri</family>
@@ -210,10 +40,20 @@
        </font>
       </property>
       <property name="text">
-       <string>Enter the area (only required for conversions with CFM):</string>
+       <string>Round using significant figures instead</string>
       </property>
-      <property name="alignment">
-       <set>Qt::AlignmentFlag::AlignCenter</set>
+     </widget>
+    </item>
+    <item row="6" column="0">
+     <widget class="QCheckBox" name="sciCheckBox">
+      <property name="font">
+       <font>
+        <family>Calibri</family>
+        <pointsize>16</pointsize>
+       </font>
+      </property>
+      <property name="text">
+       <string>Force scientific notation</string>
       </property>
      </widget>
     </item>
@@ -387,19 +227,126 @@
       </item>
      </layout>
     </item>
-    <item row="7" column="0">
-     <widget class="QLabel" name="label_2">
+    <item row="10" column="0">
+     <widget class="QPushButton" name="RefreshCurrencyDataButton">
       <property name="font">
        <font>
         <family>Calibri</family>
         <pointsize>16</pointsize>
-        <bold>true</bold>
        </font>
       </property>
       <property name="text">
-       <string>Additional Parameters (only used in some conversions):</string>
+       <string>Refresh Currency Data</string>
+      </property>
+      <property name="flat">
+       <bool>false</bool>
       </property>
      </widget>
+    </item>
+    <item row="9" column="0">
+     <layout class="QHBoxLayout" name="areaInputLayout">
+      <item>
+       <widget class="QLabel" name="Label7">
+        <property name="font">
+         <font>
+          <family>Calibri</family>
+          <pointsize>16</pointsize>
+         </font>
+        </property>
+        <property name="text">
+         <string>L:</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QLineEdit" name="AreaInputBox">
+        <property name="font">
+         <font>
+          <family>Calibri</family>
+          <pointsize>16</pointsize>
+         </font>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QLabel" name="Label6">
+        <property name="font">
+         <font>
+          <family>Calibri</family>
+          <pointsize>16</pointsize>
+         </font>
+        </property>
+        <property name="text">
+         <string>W:</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QLineEdit" name="Area2InputBox">
+        <property name="font">
+         <font>
+          <family>Calibri</family>
+          <pointsize>16</pointsize>
+         </font>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QComboBox" name="AreaUnitSelector">
+        <property name="font">
+         <font>
+          <family>Calibri</family>
+          <pointsize>16</pointsize>
+         </font>
+        </property>
+        <item>
+         <property name="text">
+          <string>Meters</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>Yards</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>Centimeters</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>Millimeters</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>Inches</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>Kilometers</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>Miles</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>Feet</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>Decimeters</string>
+         </property>
+        </item>
+       </widget>
+      </item>
+     </layout>
     </item>
     <item row="2" column="0">
      <widget class="QLabel" name="Label3">
@@ -417,6 +364,52 @@
       </property>
      </widget>
     </item>
+    <item row="1" column="0">
+     <widget class="QPushButton" name="ConvertButton">
+      <property name="font">
+       <font>
+        <family>Calibri</family>
+        <pointsize>16</pointsize>
+       </font>
+      </property>
+      <property name="text">
+       <string>Convert</string>
+      </property>
+      <property name="flat">
+       <bool>false</bool>
+      </property>
+     </widget>
+    </item>
+    <item row="8" column="0">
+     <widget class="QLabel" name="Label5">
+      <property name="font">
+       <font>
+        <family>Calibri</family>
+        <pointsize>16</pointsize>
+       </font>
+      </property>
+      <property name="text">
+       <string>Enter the area (only required for conversions with CFM):</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignmentFlag::AlignCenter</set>
+      </property>
+     </widget>
+    </item>
+    <item row="7" column="0">
+     <widget class="QLabel" name="label_2">
+      <property name="font">
+       <font>
+        <family>Calibri</family>
+        <pointsize>16</pointsize>
+        <bold>true</bold>
+       </font>
+      </property>
+      <property name="text">
+       <string>Additional Parameters (only used in some conversions):</string>
+      </property>
+     </widget>
+    </item>
     <item row="11" column="0">
      <widget class="QProgressBar" name="ProgressBar1">
       <property name="minimum">
@@ -430,6 +423,19 @@
       </property>
       <property name="textVisible">
        <bool>false</bool>
+      </property>
+     </widget>
+    </item>
+    <item row="3" column="0">
+     <widget class="QLineEdit" name="ResultBox">
+      <property name="font">
+       <font>
+        <family>Calibri</family>
+        <pointsize>16</pointsize>
+       </font>
+      </property>
+      <property name="readOnly">
+       <bool>true</bool>
       </property>
      </widget>
     </item>

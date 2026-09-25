@@ -332,7 +332,9 @@ void MainWindow::ConvertWrapper() {
     }
 
     QString resultString;
-    if (ui->CheckBox1->isChecked()) {
+    if (ui->sciCheckBox->isChecked()) {
+        resultString = QString::number(result, 'e', 17);
+    } else if (ui->CheckBox1->isChecked()) {
         resultString = QString::number(result, 'g', 17);
     } else if (shouldSF) {
         resultString = QString::number(result, 'g', significantFigures);
