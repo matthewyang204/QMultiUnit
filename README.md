@@ -2,7 +2,7 @@
 
 <img alt="QMultiUnit screenshot" src="https://archive.org/download/misc-objects-storage/QMultiUnit-screenshot-1.png" width="450"/>
 
-QMultiUnit is a unit converter built with C++ and Qt. It is available as a
+QMultiUnit is a unit converter built with C++ and Qt. It was originally written in [Visual Basic .NET Framework 4.0](https://github.com/matthewyang204/MultiUnit), and is now ported to C++ and Qt. It is available as a
 portable application bundle for macOS & Linux, and the Windows builds are packaged as an
 installer that can be installed into either the per-user program files or the system program files directories.
 
