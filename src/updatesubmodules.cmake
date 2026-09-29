@@ -37,7 +37,7 @@ foreach(LINE IN LISTS GITMODULES_LINES)
             message(STATUS "Cloning submodule: ${SUBMODULE_PATH}")
 
             execute_process(
-                COMMAND git clone "${SUBMODULE_URL}" "${SUBMODULE_DIRECTORY}"
+                COMMAND git clone --depth 1 "${SUBMODULE_URL}" "${SUBMODULE_DIRECTORY}"
                 RESULT_VARIABLE GIT_RESULT
             )
         endif()
