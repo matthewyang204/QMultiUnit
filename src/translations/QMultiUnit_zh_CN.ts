@@ -53,54 +53,54 @@
     <message>
         <location filename="../mainwindow.ui" line="14"/>
         <source>QMultiUnit 1.0.0</source>
-        <translation type="unfinished"></translation>
+        <translation>Q换算 1.0.0</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="27"/>
         <source>Disables rounding the value to the minimum decimals found in the input(s).</source>
-        <translation type="unfinished"></translation>
+        <translation>不让电脑舍入数字。</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="30"/>
         <source>Display exact value</source>
-        <translation type="unfinished"></translation>
+        <translation>不让电脑舍入数字</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="43"/>
         <source>Round using significant figures instead</source>
-        <translation type="unfinished"></translation>
+        <translation>用有效数字舍入</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="56"/>
         <source>Force scientific notation</source>
-        <translation type="unfinished"></translation>
+        <translation>用科学计数法</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="71"/>
         <source>Enter the value you want to convert:</source>
-        <translation type="unfinished"></translation>
+        <translation>输入您想要转换的数值：</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="87"/>
         <source>input</source>
-        <translation type="unfinished"></translation>
+        <translation>输入</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="100"/>
         <source>Select the category of conversion you want to perform:</source>
-        <translation type="unfinished"></translation>
+        <translation>选择您想要执行的转换类别：</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="127"/>
         <location filename="../mainwindow.cpp" line="161"/>
         <source>Area</source>
-        <translation type="unfinished"></translation>
+        <translation>面积</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="132"/>
         <location filename="../mainwindow.cpp" line="166"/>
         <source>Volume</source>
-        <translation type="unfinished"></translation>
+        <translation>体积</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="137"/>
@@ -129,166 +129,168 @@
     <message>
         <location filename="../mainwindow.ui" line="181"/>
         <source>Select the conversion you want to perform:</source>
-        <translation type="unfinished"></translation>
+        <translation>选择您想要执行的转换：</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="209"/>
         <source>To</source>
-        <translation type="unfinished"></translation>
+        <translation>换成</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="239"/>
         <source>Refresh Currency Data</source>
-        <translation type="unfinished"></translation>
+        <translation>更新钱数据</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="257"/>
         <source>L:</source>
-        <translation type="unfinished"></translation>
+        <translation>长度：</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="280"/>
         <source>W:</source>
-        <translation type="unfinished"></translation>
+        <translation>宽度：</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="304"/>
         <source>Meters</source>
-        <translation type="unfinished"></translation>
+        <translation>米</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="309"/>
         <source>Yards</source>
-        <translation type="unfinished"></translation>
+        <translation>美国Yards</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="314"/>
         <source>Centimeters</source>
-        <translation type="unfinished"></translation>
+        <translation>厘米</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="319"/>
         <source>Millimeters</source>
-        <translation type="unfinished"></translation>
+        <translation>毫米</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="324"/>
         <source>Inches</source>
-        <translation type="unfinished"></translation>
+        <translation>美国尺</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="329"/>
         <source>Kilometers</source>
-        <translation type="unfinished"></translation>
+        <translation>千米</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="334"/>
         <source>Miles</source>
-        <translation type="unfinished"></translation>
+        <translation>美国Miles</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="339"/>
         <source>Feet</source>
-        <translation type="unfinished"></translation>
+        <translation>美国Feet</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="344"/>
         <source>Decimeters</source>
-        <translation type="unfinished"></translation>
+        <translation>分米</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="360"/>
         <source>Result:</source>
-        <translation type="unfinished"></translation>
+        <translation>结果：</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="376"/>
         <source>Convert</source>
-        <translation type="unfinished"></translation>
+        <translation>换算</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="392"/>
         <source>Enter the area (only required for conversions with CFM):</source>
-        <translation type="unfinished"></translation>
+        <translation>输入面积（仅在涉及 CFM 的换算时需要）：</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="409"/>
         <source>Additional Parameters (only used in some conversions):</source>
-        <translation type="unfinished"></translation>
+        <translation>别的参数：</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="455"/>
         <source>Help</source>
-        <translation type="unfinished"></translation>
+        <translation>帮忙/信息</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="465"/>
         <source>toolBar</source>
-        <translation type="unfinished"></translation>
+        <translation>工具栏</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="476"/>
         <source>About QMultiUnit</source>
-        <translation type="unfinished"></translation>
+        <translation>关于 QMultiUnit</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="481"/>
         <source>About Qt</source>
-        <translation type="unfinished"></translation>
+        <translation>关于 Qt</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="222"/>
         <source>Invalid Category</source>
-        <translation type="unfinished"></translation>
+        <translation>无效分类</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="223"/>
         <source>Please select a valid category.</source>
-        <translation type="unfinished"></translation>
+        <translation>请选择有效类别。</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="248"/>
         <location filename="../mainwindow.cpp" line="285"/>
         <source>Invalid Input</source>
-        <translation type="unfinished"></translation>
+        <translation>无效输入</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="248"/>
         <source>Please enter a valid number.</source>
-        <translation type="unfinished"></translation>
+        <translation>请输入有效数字。</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="286"/>
         <source>Please enter valid area dimensions.</source>
-        <translation type="unfinished"></translation>
+        <translation>请输入有效的面积尺寸。</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="292"/>
         <source>Infinity Warning</source>
-        <translation type="unfinished"></translation>
+        <translation>无穷大警告</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="293"/>
         <source>Your area is zero; therefore your result is definitely infinity or some other certainly meaningless value.</source>
-        <translation type="unfinished"></translation>
+        <translation>面积为零；因此结果必然是无穷大或其他明显无意义的值。</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="372"/>
         <location filename="../mainwindow.cpp" line="382"/>
         <source>Currency Data Error</source>
-        <translation type="unfinished"></translation>
+        <translation>货币数据错误</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="373"/>
         <source>Unable to update currency data; no previous data:
 %1</source>
-        <translation type="unfinished"></translation>
+        <translation>无法更新货币数据；没有历史数据：
+%1</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="383"/>
         <source>Unable to update currency data; falling back to previously fetched data:
 %1</source>
-        <translation type="unfinished"></translation>
+        <translation>无法更新货币数据；将回退到之前获取的数据：
+%1</translation>
     </message>
 </context>
 </TS>
