@@ -21,3 +21,4 @@ refresh-release-translations:
 		translations/QMultiUnit_zh_TW.ts
 
 refresh-translations: refresh-release-translations
+refresh-all: update-translations refresh-release-translations
