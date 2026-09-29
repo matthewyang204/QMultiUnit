@@ -1,5 +1,13 @@
 <RCC>
     <qresource prefix="/">
         <file>images/qmultiunit-1024.png</file>
+        <file>translations/QMultiUnit_zh_CN.qm</file>
+        <file>translations/QMultiUnit_zh_TW.qm</file>
+        <file>translations/QMultiUnit_ko_KR.qm</file>
+        <file>translations/QMultiUnit_fr_FR.qm</file>
+        <file>translations/QMultiUnit_es_ES.qm</file>
+        <file>translations/QMultiUnit_ru_RU.qm</file>
+        <file>translations/QMultiUnit_de_DE.qm</file>
+        <file>translations/QMultiUnit_ar.qm</file>
     </qresource>
 </RCC>

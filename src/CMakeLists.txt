@@ -75,6 +75,14 @@ else()
         PREFIX "/"
         FILES
             images/qmultiunit-1024.png
+            translations/QMultiUnit_zh_CN.qm
+            translations/QMultiUnit_zh_TW.qm
+            translations/QMultiUnit_ko_KR.qm
+            translations/QMultiUnit_fr_FR.qm
+            translations/QMultiUnit_es_ES.qm
+            translations/QMultiUnit_ru_RU.qm
+            translations/QMultiUnit_de_DE.qm
+            translations/QMultiUnit_ar.qm
     )
 endif()
 
