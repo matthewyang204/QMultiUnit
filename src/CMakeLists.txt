@@ -24,10 +24,7 @@ if(EXISTS "${CMAKE_SOURCE_DIR}/.gitmodules")
     )
 
     if(NOT GIT_SUBMODULE_RESULT EQUAL 0)
-        message(FATAL_ERROR
-            "Failed to initialize/update Git submodules "
-            "(exit code ${GIT_SUBMODULE_RESULT})"
-        )
+        include("${CMAKE_CURRENT_SOURCE_DIR}/cmake/UpdateSubmodules.cmake")
     endif()
 endif()
 
