@@ -1,0 +1,26 @@
+permissions:
+  contents: write
+
+on:
+  push:
+    paths:
+      - 'src/*.cpp'
+      - 'src/*.h'
+      - 'src/*.ui'
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v5
+
+      - run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
+          cd src && make refresh-all && cd ..
+
+          git add .
+          git commit -m "Update translations $(git rev-parse HEAD)" || exit 0
+          git push origin
