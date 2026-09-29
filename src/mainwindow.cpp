@@ -31,7 +31,7 @@ MainWindow::MainWindow(QWidget *parent)
         QMessageBox::about(
             this,
             QString(),
-            QStringLiteral(
+            tr(
                 "<h3>QMultiUnit v1.0.0</h3>"
                 "<p>Copyright © 2024-2026 Matthew Yang (杨佳明)</p>"
                 "<p><a href=\"https://github.com/matthewyang204/QMultiUnit\">"
@@ -76,8 +76,8 @@ void MainWindow::updateAuxiliaryControls()
 {
     const QString category = ui->UnitCategorySelector->currentText();
 
-    setAirFlowControlsVisible(category == QStringLiteral("Air Flow"));
-    setCurrencyControlsVisible(category == QStringLiteral("Currency"));
+    setAirFlowControlsVisible(category == tr("Air Flow"));
+    setCurrencyControlsVisible(category == tr("Currency"));
 }
 
 void MainWindow::updateRoundingControls()
@@ -141,49 +141,49 @@ void MainWindow::on_UnitCategorySelector_currentIndexChanged(int index)
     QString category = ui->UnitCategorySelector->currentText();
     QStringList units;
 
-    if (category == "Temperature") {
+    if (category == tr("Temperature")) {
         units = QStringList({
             "C",
             "F",
             "K"
         });
 
-    } else if (category == "Speed") {
+    } else if (category == tr("Speed")) {
         for (auto it = mainconversiondicts.SpeedRatios.begin(); it != mainconversiondicts.SpeedRatios.end(); ++it){
             units.append(it.key());
         }
 
-    } else if (category == "Length") {
+    } else if (category == tr("Length")) {
         for (auto it = mainconversiondicts.LengthRatios.begin(); it != mainconversiondicts.LengthRatios.end(); ++it){
             units.append(it.key());
         }
 
-    } else if (category == "Area") {
+    } else if (category == tr("Area")) {
         for (auto it = mainconversiondicts.AreaRatios.begin(); it != mainconversiondicts.AreaRatios.end(); ++it){
             units.append(it.key());
         }
 
-    } else if (category == "Volume") {
+    } else if (category == tr("Volume")) {
         for (auto it = mainconversiondicts.VolumeRatios.begin(); it != mainconversiondicts.VolumeRatios.end(); ++it){
             units.append(it.key());
         }
 
-    } else if (category == "Energy") {
+    } else if (category == tr("Energy")) {
         for (auto it = mainconversiondicts.EnergyRatios.begin(); it != mainconversiondicts.EnergyRatios.end(); ++it){
             units.append(it.key());
         }
 
-    } else if (category == "Weight") {
+    } else if (category == tr("Weight")) {
         for (auto it = mainconversiondicts.WeightRatios.begin(); it != mainconversiondicts.WeightRatios.end(); ++it){
             units.append(it.key());
         }
 
-    } else if (category == "Mass") {
+    } else if (category == tr("Mass")) {
         for (auto it = mainconversiondicts.MassRatios.begin(); it != mainconversiondicts.MassRatios.end(); ++it){
             units.append(it.key());
         }
 
-    } else if (category == "Air Flow") {
+    } else if (category == tr("Air Flow")) {
         units = QStringList({
             "CFM",
             "LFM",
@@ -196,12 +196,12 @@ void MainWindow::on_UnitCategorySelector_currentIndexChanged(int index)
         // Make the area input stuff visible
         setAirFlowControlsVisible(true);
 
-    } else if (category == "Angle") {
+    } else if (category == tr("Angle")) {
         for (auto it = mainconversiondicts.AngleRatios.begin(); it != mainconversiondicts.AngleRatios.end(); ++it){
             units.append(it.key());
         }
 
-    } else if (category == "Currency") {
+    } else if (category == tr("Currency")) {
         setCurrencyControlsVisible(true);
 
         ui->UnitSelectionBox->clear();
@@ -219,8 +219,8 @@ void MainWindow::on_UnitCategorySelector_currentIndexChanged(int index)
     } else {
         QMessageBox::warning(
             this,
-            "Invalid Category",
-            "Please select a valid category."
+            tr("Invalid Category"),
+            tr("Please select a valid category.")
             );
     }
 
@@ -245,7 +245,7 @@ void MainWindow::ConvertWrapper() {
     QString userInputStr = ui->Input->text();
     double userInput = userInputStr.toDouble(&ok);
     if (!ok) {
-        QMessageBox::warning(this, "Invalid Input", "Please enter a valid number.");
+        QMessageBox::warning(this, tr("Invalid Input"), tr("Please enter a valid number."));
         qWarning() << "E: User attempted to convert bad number: " << userInputStr;
         return;
     }
@@ -268,10 +268,10 @@ void MainWindow::ConvertWrapper() {
     QString areaWidthStr;
     double areaHeight;
     double areaWidth;
-    if (category == "Temperature") {
+    if (category == tr("Temperature")) {
         AdditionalConv additionalconverter(mainconversiondicts);
         result = additionalconverter.TempConvert(fromUnit, toUnit, userInput);
-    } else if (category == "Air Flow") {
+    } else if (category == tr("Air Flow")) {
         bool widthOK;
         bool heightOK;
         areaUnit = ui->AreaUnitSelector->currentText();
@@ -282,15 +282,15 @@ void MainWindow::ConvertWrapper() {
         if (!widthOK || !heightOK) {
             QMessageBox::warning(
                 this,
-                "Invalid Input",
-                "Please enter valid area dimensions."
+                tr("Invalid Input"),
+                tr("Please enter valid area dimensions.")
                 );
             return;
         } else if ((areaHeight <= 0 || areaWidth <= 0) && (fromUnit == "CFM" || toUnit == "CFM")) {
             QMessageBox::warning(
                 this,
-                "Infinity Warning",
-                "Your area is zero; therefore your result is definitely infinity or some other certainly meaningless value."
+                tr("Infinity Warning"),
+                tr("Your area is zero; therefore your result is definitely infinity or some other certainly meaningless value.")
                 );
             result = std::numeric_limits<double>::infinity();
         } else {
@@ -303,7 +303,7 @@ void MainWindow::ConvertWrapper() {
 
     int decimalPlaces = 0;
     int significantFigures = 0;
-    if (shouldRound && category == "Air Flow"){
+    if (shouldRound && category == tr("Air Flow")){
         std::vector<QString> numbers = {
             areaHeightStr,
             areaWidthStr,
@@ -311,7 +311,7 @@ void MainWindow::ConvertWrapper() {
         };
         decimalPlaces = Rounder().GetLowestDecimalPlacesQStr(numbers);
         result = Rounder().roundtoDecimalPlaces(result, decimalPlaces);
-    } else if (shouldSF && category == "Air Flow"){
+    } else if (shouldSF && category == tr("Air Flow")){
         std::vector<QString> numbers = {
             areaHeightStr,
             areaWidthStr,
@@ -319,10 +319,10 @@ void MainWindow::ConvertWrapper() {
         };
         significantFigures = SigFigs().GetSigFigsFromListQStr(numbers);
         result = SigFigs().RoundToSigFigs(result, significantFigures);
-    } else if (shouldSF && category == "Temperature"){
+    } else if (shouldSF && category == tr("Temperature")){
         significantFigures = SigFigs::GetSigFigsQStr(userInputStr);
         result = SigFigs::RoundToSigFigs(result, significantFigures);
-    } else if (shouldRound && category == "Temperature"){
+    } else if (shouldRound && category == tr("Temperature")){
         decimalPlaces = Rounder().GetDecimalPlacesQStr(userInputStr);
         result = Rounder().roundtoDecimalPlaces(result, decimalPlaces);
     } else if (shouldRound){
@@ -369,8 +369,8 @@ bool MainWindow::on_RefreshCurrencyDataButton_clicked()
         if (bakCRatios.size() < 2) {
             QMessageBox::warning(
                 this,
-                "Currency Data Error",
-                QString("Unable to update currency data; no previous data:\n%1")
+                tr("Currency Data Error"),
+                tr("Unable to update currency data; no previous data:\n%1")
                     .arg(e.what())
                 );
             ui->ProgressBar1->setVisible(false);
@@ -379,8 +379,8 @@ bool MainWindow::on_RefreshCurrencyDataButton_clicked()
         } else {
             QMessageBox::warning(
                 this,
-                "Currency Data Error",
-                QString("Unable to update currency data; falling back to previously fetched data:\n%1")
+                tr("Currency Data Error"),
+                tr("Unable to update currency data; falling back to previously fetched data:\n%1")
                     .arg(e.what())
                 );
             mainconversiondicts.CurrencyRatios = bakCRatios;
