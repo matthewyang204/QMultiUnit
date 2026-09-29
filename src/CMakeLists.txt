@@ -16,7 +16,8 @@ else()
 endif()
 
 find_package(Git REQUIRED)
-if(EXISTS "${CMAKE_SOURCE_DIR}/.gitmodules")
+if(EXISTS "${CMAKE_SOURCE_DIR}/../.gitmodules")
+    message(STATUS "Updating Git submodules...")
     execute_process(
         COMMAND "${GIT_EXECUTABLE}" submodule update --init --recursive
         WORKING_DIRECTORY "${CMAKE_SOURCE_DIR}"
@@ -24,7 +25,8 @@ if(EXISTS "${CMAKE_SOURCE_DIR}/.gitmodules")
     )
 
     if(NOT GIT_SUBMODULE_RESULT EQUAL 0)
-        include("${CMAKE_CURRENT_SOURCE_DIR}/cmake/UpdateSubmodules.cmake")
+        message(STATUS "Updating Git submodules using .gitmodules...")
+        include("${CMAKE_CURRENT_SOURCE_DIR}/UpdateSubmodules.cmake")
     endif()
 endif()
 
