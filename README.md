@@ -33,6 +33,10 @@ On Linux, download the ZIP containing the application, and extract it to your de
 iOS & Android are coming soon to their respective application stores, but for now you will need to sideload it. Follow [MOBILE.md](MOBILE.md) for instructions for mobile platforms.
 
 ## Building
+First, you need to either clone the repository with submodules or download a proper source archive from the releases page (*not* GitHub's auto-generated source files).
+```bash
+git clone --recurse-submodules https://github.com/matthewyang204/QMultiUnit.git
+```
 
 Build requirements, platform-specific dependencies, CMake commands, deployment
 steps, and Windows installer instructions for desktop are documented in
