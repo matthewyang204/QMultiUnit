@@ -136,6 +136,11 @@ if(ANDROID)
     )
 endif()
 
+execute_process(
+    COMMAND make refresh-translations
+    WORKING_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}
+)
+
 # qt_add_translations(
 #     TARGETS QMultiUnit
 #     TS_FILES QMultiUnit_en_US.ts
