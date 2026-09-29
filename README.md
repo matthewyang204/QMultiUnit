@@ -14,7 +14,7 @@ installer that can be installed into either the per-user program files or the sy
 - Qt 6.5 or later (recommended), or Qt 5.15 when building with the `USE_QT5`
   compatibility option
 - CMake 3.19 or later
-- A C++ compiler supported by the selected Qt version
+- A C++ compiler supported by the selected Qt version, for example the following: `g++`, `clang++`, or MSVC++ (`cl`)
 
 ## Installing
 
