@@ -8,7 +8,9 @@
         <source>&lt;h3&gt;QMultiUnit v1.0.0&lt;/h3&gt;&lt;p&gt;Copyright © 2024-2026 Matthew Yang (杨佳明)&lt;/p&gt;&lt;p&gt;&lt;a href=&quot;https://github.com/matthewyang204/QMultiUnit&quot;&gt;QMultiUnit Home Page&lt;/a&gt;&lt;/p&gt;&lt;p&gt;This program is free software: you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version.&lt;/p&gt;
             &lt;p&gt;This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License for more details.&lt;/p&gt;
             &lt;p&gt;You should have received a copy of the GNU General Public License along with this program. If not, see &amp;lt;&lt;a href=\&quot;https://www.gnu.org/licenses/\&quot;&gt;https://www.gnu.org/licenses/&lt;/a&gt;&amp;gt;.&lt;/p&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;h3&gt;QMultiUnit v1.0.0&lt;/h3&gt;&lt;p&gt;Copyright © 2024-2026 Matthew Yang (杨佳明)&lt;/p&gt;&lt;p&gt;&lt;a href=&quot;https://github.com/matthewyang204/QMultiUnit&quot;&gt;QMultiUnit Home Page&lt;/a&gt;&lt;/p&gt;&lt;p&gt;This program is free software: you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version.&lt;/p&gt;
+            &lt;p&gt;This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License for more details.&lt;/p&gt;
+            &lt;p&gt;You should have received a copy of the GNU General Public License along with this program. If not, see &amp;lt;&lt;a href=\&quot;https://www.gnu.org/licenses/\&quot;&gt;https://www.gnu.org/licenses/&lt;/a&gt;&amp;gt;.&lt;/p&gt;</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="79"/>
@@ -17,13 +19,13 @@
         <location filename="../mainwindow.cpp" line="306"/>
         <location filename="../mainwindow.cpp" line="314"/>
         <source>Air Flow</source>
-        <translation type="unfinished"></translation>
+        <translation>气流</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="80"/>
         <location filename="../mainwindow.cpp" line="204"/>
         <source>Currency</source>
-        <translation type="unfinished"></translation>
+        <translation>钱</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="144"/>
@@ -31,17 +33,17 @@
         <location filename="../mainwindow.cpp" line="322"/>
         <location filename="../mainwindow.cpp" line="325"/>
         <source>Temperature</source>
-        <translation type="unfinished"></translation>
+        <translation>温度</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="151"/>
         <source>Speed</source>
-        <translation type="unfinished"></translation>
+        <translation>速度</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="156"/>
         <source>Length</source>
-        <translation type="unfinished"></translation>
+        <translation>长度</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="161"/>
@@ -56,22 +58,22 @@
     <message>
         <location filename="../mainwindow.cpp" line="171"/>
         <source>Energy</source>
-        <translation type="unfinished"></translation>
+        <translation>能量</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="176"/>
         <source>Weight</source>
-        <translation type="unfinished"></translation>
+        <translation>重量</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="181"/>
         <source>Mass</source>
-        <translation type="unfinished"></translation>
+        <translation>质量</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="199"/>
         <source>Angle</source>
-        <translation type="unfinished"></translation>
+        <translation>角度</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="222"/>
