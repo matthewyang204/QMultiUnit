@@ -58,17 +58,17 @@
     <message>
         <location filename="../mainwindow.ui" line="27"/>
         <source>Disables rounding the value to the minimum decimals found in the input(s).</source>
-        <translation>不让电脑舍入数字。</translation>
+        <translation>禁用将数值舍入至输入值中的最小小数位。</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="30"/>
         <source>Display exact value</source>
-        <translation>不让电脑舍入数字</translation>
+        <translation>显示精确值</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="43"/>
         <source>Round using significant figures instead</source>
-        <translation>用有效数字舍入</translation>
+        <translation>改为使用有效数字舍入</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="56"/>
@@ -134,7 +134,7 @@
     <message>
         <location filename="../mainwindow.ui" line="209"/>
         <source>To</source>
-        <translation>换成</translation>
+        <translation>到</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="239"/>
@@ -239,23 +239,23 @@
     <message>
         <location filename="../mainwindow.cpp" line="222"/>
         <source>Invalid Category</source>
-        <translation>无效分类</translation>
+        <translation>类别无效</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="223"/>
         <source>Please select a valid category.</source>
-        <translation>请选择有效类别。</translation>
+        <translation>请选择有效的类别。</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="248"/>
         <location filename="../mainwindow.cpp" line="285"/>
         <source>Invalid Input</source>
-        <translation>无效输入</translation>
+        <translation>输入无效</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="248"/>
         <source>Please enter a valid number.</source>
-        <translation>请输入有效数字。</translation>
+        <translation>请输入有效的数字。</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="286"/>
