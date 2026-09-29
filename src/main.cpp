@@ -5,6 +5,7 @@
 #include <QStyleFactory>
 #include <QIcon>
 #include <QDebug>
+#include <QTranslator>
 
 int main(int argc, char *argv[])
 {
@@ -22,6 +23,21 @@ int main(int argc, char *argv[])
 
     setTheme(isSystemDarkMode());
     setThemeListener();
+
+    QString systemLang = QLocale::system().name();
+    qDebug() << "I: Locale:" << systemLang;
+    QString lang = qEnvironmentVariable("LANG");
+    lang = lang.left(lang.lastIndexOf('.'));
+    qDebug() << "I: Terminal Locale:" << lang;
+    QString lang2use;
+    if (systemLang.isEmpty()) {lang2use = lang;}
+    else if (lang.isEmpty()) {lang2use = systemLang;}
+    else if (systemLang != lang) {lang2use = lang;}
+    else {lang2use = systemLang;}
+    QTranslator translator;
+    if (translator.load(QLocale(lang2use), "QMultiUnit", "_", ":/translations")) {
+        a.installTranslator(&translator);
+    }
 
     MainWindow w;
     w.show();
