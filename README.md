@@ -15,6 +15,7 @@ installer that can be installed into either the per-user program files or the sy
   compatibility option
 - CMake 3.19 or later
 - A C++ compiler supported by the selected Qt version, for example the following: `g++`, `clang++`, or MSVC++ (`cl`)
+- A working Make (preferably GNU Make or BSD Make)
 
 ## Installing
 
