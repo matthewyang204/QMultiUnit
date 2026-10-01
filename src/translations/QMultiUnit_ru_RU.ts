@@ -13,38 +13,38 @@
     <message>
         <location filename="../mainwindow.ui" line="157"/>
         <location filename="../mainwindow.cpp" line="79"/>
-        <location filename="../mainwindow.cpp" line="186"/>
-        <location filename="../mainwindow.cpp" line="274"/>
-        <location filename="../mainwindow.cpp" line="306"/>
-        <location filename="../mainwindow.cpp" line="314"/>
+        <location filename="../mainwindow.cpp" line="198"/>
+        <location filename="../mainwindow.cpp" line="286"/>
+        <location filename="../mainwindow.cpp" line="318"/>
+        <location filename="../mainwindow.cpp" line="326"/>
         <source>Air Flow</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="167"/>
         <location filename="../mainwindow.cpp" line="80"/>
-        <location filename="../mainwindow.cpp" line="204"/>
+        <location filename="../mainwindow.cpp" line="216"/>
         <source>Currency</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="117"/>
-        <location filename="../mainwindow.cpp" line="144"/>
-        <location filename="../mainwindow.cpp" line="271"/>
-        <location filename="../mainwindow.cpp" line="322"/>
-        <location filename="../mainwindow.cpp" line="325"/>
+        <location filename="../mainwindow.cpp" line="156"/>
+        <location filename="../mainwindow.cpp" line="283"/>
+        <location filename="../mainwindow.cpp" line="334"/>
+        <location filename="../mainwindow.cpp" line="337"/>
         <source>Temperature</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="142"/>
-        <location filename="../mainwindow.cpp" line="151"/>
+        <location filename="../mainwindow.cpp" line="163"/>
         <source>Speed</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="122"/>
-        <location filename="../mainwindow.cpp" line="156"/>
+        <location filename="../mainwindow.cpp" line="168"/>
         <source>Length</source>
         <translation type="unfinished"></translation>
     </message>
@@ -90,37 +90,37 @@
     </message>
     <message>
         <location filename="../mainwindow.ui" line="127"/>
-        <location filename="../mainwindow.cpp" line="161"/>
+        <location filename="../mainwindow.cpp" line="173"/>
         <source>Area</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="132"/>
-        <location filename="../mainwindow.cpp" line="166"/>
+        <location filename="../mainwindow.cpp" line="178"/>
         <source>Volume</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="137"/>
-        <location filename="../mainwindow.cpp" line="171"/>
+        <location filename="../mainwindow.cpp" line="183"/>
         <source>Energy</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="147"/>
-        <location filename="../mainwindow.cpp" line="176"/>
+        <location filename="../mainwindow.cpp" line="188"/>
         <source>Weight</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="152"/>
-        <location filename="../mainwindow.cpp" line="181"/>
+        <location filename="../mainwindow.cpp" line="193"/>
         <source>Mass</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="162"/>
-        <location filename="../mainwindow.cpp" line="199"/>
+        <location filename="../mainwindow.cpp" line="211"/>
         <source>Angle</source>
         <translation type="unfinished"></translation>
     </message>
@@ -235,55 +235,55 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="222"/>
+        <location filename="../mainwindow.cpp" line="234"/>
         <source>Invalid Category</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="223"/>
+        <location filename="../mainwindow.cpp" line="235"/>
         <source>Please select a valid category.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="248"/>
-        <location filename="../mainwindow.cpp" line="285"/>
+        <location filename="../mainwindow.cpp" line="260"/>
+        <location filename="../mainwindow.cpp" line="297"/>
         <source>Invalid Input</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="248"/>
+        <location filename="../mainwindow.cpp" line="260"/>
         <source>Please enter a valid number.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="286"/>
+        <location filename="../mainwindow.cpp" line="298"/>
         <source>Please enter valid area dimensions.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="292"/>
+        <location filename="../mainwindow.cpp" line="304"/>
         <source>Infinity Warning</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="293"/>
+        <location filename="../mainwindow.cpp" line="305"/>
         <source>Your area is zero; therefore your result is definitely infinity or some other certainly meaningless value.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="372"/>
-        <location filename="../mainwindow.cpp" line="382"/>
+        <location filename="../mainwindow.cpp" line="384"/>
+        <location filename="../mainwindow.cpp" line="394"/>
         <source>Currency Data Error</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="373"/>
+        <location filename="../mainwindow.cpp" line="385"/>
         <source>Unable to update currency data; no previous data:
 %1</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="383"/>
+        <location filename="../mainwindow.cpp" line="395"/>
         <source>Unable to update currency data; falling back to previously fetched data:
 %1</source>
         <translation type="unfinished"></translation>

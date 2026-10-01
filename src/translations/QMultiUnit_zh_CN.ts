@@ -15,38 +15,38 @@
     <message>
         <location filename="../mainwindow.ui" line="157"/>
         <location filename="../mainwindow.cpp" line="79"/>
-        <location filename="../mainwindow.cpp" line="186"/>
-        <location filename="../mainwindow.cpp" line="274"/>
-        <location filename="../mainwindow.cpp" line="306"/>
-        <location filename="../mainwindow.cpp" line="314"/>
+        <location filename="../mainwindow.cpp" line="198"/>
+        <location filename="../mainwindow.cpp" line="286"/>
+        <location filename="../mainwindow.cpp" line="318"/>
+        <location filename="../mainwindow.cpp" line="326"/>
         <source>Air Flow</source>
         <translation>气流</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="167"/>
         <location filename="../mainwindow.cpp" line="80"/>
-        <location filename="../mainwindow.cpp" line="204"/>
+        <location filename="../mainwindow.cpp" line="216"/>
         <source>Currency</source>
         <translation>钱</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="117"/>
-        <location filename="../mainwindow.cpp" line="144"/>
-        <location filename="../mainwindow.cpp" line="271"/>
-        <location filename="../mainwindow.cpp" line="322"/>
-        <location filename="../mainwindow.cpp" line="325"/>
+        <location filename="../mainwindow.cpp" line="156"/>
+        <location filename="../mainwindow.cpp" line="283"/>
+        <location filename="../mainwindow.cpp" line="334"/>
+        <location filename="../mainwindow.cpp" line="337"/>
         <source>Temperature</source>
         <translation>温度</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="142"/>
-        <location filename="../mainwindow.cpp" line="151"/>
+        <location filename="../mainwindow.cpp" line="163"/>
         <source>Speed</source>
         <translation>速度</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="122"/>
-        <location filename="../mainwindow.cpp" line="156"/>
+        <location filename="../mainwindow.cpp" line="168"/>
         <source>Length</source>
         <translation>长度</translation>
     </message>
@@ -92,37 +92,37 @@
     </message>
     <message>
         <location filename="../mainwindow.ui" line="127"/>
-        <location filename="../mainwindow.cpp" line="161"/>
+        <location filename="../mainwindow.cpp" line="173"/>
         <source>Area</source>
         <translation>面积</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="132"/>
-        <location filename="../mainwindow.cpp" line="166"/>
+        <location filename="../mainwindow.cpp" line="178"/>
         <source>Volume</source>
         <translation>体积</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="137"/>
-        <location filename="../mainwindow.cpp" line="171"/>
+        <location filename="../mainwindow.cpp" line="183"/>
         <source>Energy</source>
         <translation>能量</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="147"/>
-        <location filename="../mainwindow.cpp" line="176"/>
+        <location filename="../mainwindow.cpp" line="188"/>
         <source>Weight</source>
         <translation>重量</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="152"/>
-        <location filename="../mainwindow.cpp" line="181"/>
+        <location filename="../mainwindow.cpp" line="193"/>
         <source>Mass</source>
         <translation>质量</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="162"/>
-        <location filename="../mainwindow.cpp" line="199"/>
+        <location filename="../mainwindow.cpp" line="211"/>
         <source>Angle</source>
         <translation>角度</translation>
     </message>
@@ -237,56 +237,56 @@
         <translation>关于 Qt</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="222"/>
+        <location filename="../mainwindow.cpp" line="234"/>
         <source>Invalid Category</source>
         <translation>类别无效</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="223"/>
+        <location filename="../mainwindow.cpp" line="235"/>
         <source>Please select a valid category.</source>
         <translation>请选择有效的类别。</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="248"/>
-        <location filename="../mainwindow.cpp" line="285"/>
+        <location filename="../mainwindow.cpp" line="260"/>
+        <location filename="../mainwindow.cpp" line="297"/>
         <source>Invalid Input</source>
         <translation>输入无效</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="248"/>
+        <location filename="../mainwindow.cpp" line="260"/>
         <source>Please enter a valid number.</source>
         <translation>请输入有效的数字。</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="286"/>
+        <location filename="../mainwindow.cpp" line="298"/>
         <source>Please enter valid area dimensions.</source>
         <translation>请输入有效的面积尺寸。</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="292"/>
+        <location filename="../mainwindow.cpp" line="304"/>
         <source>Infinity Warning</source>
         <translation>无穷大警告</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="293"/>
+        <location filename="../mainwindow.cpp" line="305"/>
         <source>Your area is zero; therefore your result is definitely infinity or some other certainly meaningless value.</source>
         <translation>面积为零；因此结果必然是无穷大或其他明显无意义的值。</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="372"/>
-        <location filename="../mainwindow.cpp" line="382"/>
+        <location filename="../mainwindow.cpp" line="384"/>
+        <location filename="../mainwindow.cpp" line="394"/>
         <source>Currency Data Error</source>
         <translation>货币数据错误</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="373"/>
+        <location filename="../mainwindow.cpp" line="385"/>
         <source>Unable to update currency data; no previous data:
 %1</source>
         <translation>无法更新货币数据；没有历史数据：
 %1</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="383"/>
+        <location filename="../mainwindow.cpp" line="395"/>
         <source>Unable to update currency data; falling back to previously fetched data:
 %1</source>
         <translation>无法更新货币数据；将回退到之前获取的数据：
