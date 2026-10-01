@@ -82,7 +82,19 @@ void MainWindow::updateAuxiliaryControls()
 
 void MainWindow::updateRoundingControls()
 {
-    if (ui->CheckBox1->isChecked() || ui->sciCheckBox->isChecked()) {
+    const bool scientific = ui->sciCheckBox->isChecked();
+
+    if (scientific) {
+        ui->CheckBox1->setChecked(false);
+        ui->CheckBox2->setChecked(false);
+        ui->CheckBox1->setEnabled(false);
+        ui->CheckBox2->setEnabled(false);
+        return;
+    }
+
+    ui->CheckBox1->setEnabled(true);
+
+    if (ui->CheckBox1->isChecked()) {
         ui->CheckBox2->setChecked(false);
         ui->CheckBox2->setEnabled(false);
     } else {
