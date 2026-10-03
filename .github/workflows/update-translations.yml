@@ -9,7 +9,9 @@ on:
       - 'src/*.cpp'
       - 'src/*.h'
       - 'src/*.ui'
+      - 'src/translations/*.ts'
       - '.github/workflows/update-translations.yml'
+  workflow_dispatch:
 
 jobs:
   update:
